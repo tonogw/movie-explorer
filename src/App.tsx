@@ -1,24 +1,14 @@
 import './index.css';
+// import { Routes, Route } from 'react-router-dom';
+import HomePage from '@/pages/HomePage';
 
-import {
-  usePopularMovies,
-  useTrendingMovies,
-  useNowPlayingMovies,
-  useNewReleaseMovies,
-} from './hooks/useMovies';
+// import MovieDetailPage from '@/pages/MovieDetailPage';
 
 function App() {
   // TODO: Setup routing dengan React Router
   // TODO: Implement layout structure
   // TODO: Add navigation between pages
   // { data, isLoading, isError }
-
-  const { data, isLoading } = usePopularMovies();
-  const { data: trendingData, isLoading: trendingLoading } = useTrendingMovies('week');
-
-  const { data: useNowPlayingData, isLoading: playingLoading } = useNowPlayingMovies();
-
-  const { data: useNewReleaseData, isLoading: releaseLoading } = useNewReleaseMovies('ID');
 
   return (
     <div className="min-h-screen bg-background bg-black text-[#FDFDFD]">
@@ -28,27 +18,8 @@ function App() {
           {/* TODO: Add navigation menu */}
         </div>
       </header>
-
       <main className="container mx-auto px-4 py-8">
-        {isLoading && <h2>Loading movies . . . </h2>}
-
         <div className="text-center space-y-4">
-          {data?.results.map((movie) => (
-            <div key={movie.id} className="border p-4 rounded-lg">
-              <h2 className="text-xl font-bold">{movie.title}</h2>
-
-              <p>
-                rating:
-                {movie.vote_average}
-              </p>
-
-              <p>
-                Release:
-                {movie.release_date}
-              </p>
-            </div>
-          ))}
-
           <h2 className="text-4xl font-bold">Challenge 9 - Movie App</h2>
           <p className="text-muted-foreground">
             Mulai dengan membaca README.md untuk instruksi lengkap!
@@ -65,9 +36,9 @@ function App() {
             </ol>
           </div>
         </div>
-
-        {/* TODO: Replace this with your actual application routes and components */}
       </main>
+      <HomePage />
+      <p className="text-center">TEST</p>
     </div>
   );
 }

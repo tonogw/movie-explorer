@@ -1,5 +1,5 @@
 import api from '@/lib/axios';
-import type { CreditResponse, Movie, MovieResponse } from '@/types/movie';
+import type { CreditResponse, Movie, MovieResponse, DetailResponse } from '@/types/movie';
 
 // TODO: Create service functions to fetch data from TMDB API
 // Reference: https://developer.themoviedb.org/reference/intro/getting-started
@@ -59,6 +59,12 @@ export const movieService = {
   // ENDpoint: GET Casts
   getMovieCredits: async (movieId: number): Promise<CreditResponse> => {
     const response = await api.get<CreditResponse>(`/movie/${movieId}/credits`);
+    return response.data;
+  },
+
+  // ENDpoint: GET Image detail
+  getMovieDetail: async (movieId: number): Promise<DetailResponse> => {
+    const response = await api.get<DetailResponse>(`/movie/${movieId}`);
     return response.data;
   },
 };

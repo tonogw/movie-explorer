@@ -59,3 +59,14 @@ export const useMovieCredits = (movieId: number) => {
     enabled: !!movieId,
   });
 };
+
+// Hook to fetch movie detail
+export const useMovieDetail = (movieId: number) => {
+  return useQuery({
+    queryKey: ['movie-detail', movieId],
+
+    queryFn: () => movieService.getMovieDetail(movieId),
+
+    enabled: !!movieId,
+  });
+};

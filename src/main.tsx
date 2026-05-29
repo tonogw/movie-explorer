@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './index.css';
 import App from './App.tsx';
+import { BrowserRouter } from 'react-router-dom';
 
 // TODO: Configure QueryClient with appropriate default options
 // Reference: https://tanstack.com/query/latest/docs/framework/react/reference/QueryClient
@@ -23,7 +24,10 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+
       {/* React Query Devtools - useful for debugging */}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
