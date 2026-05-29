@@ -37,5 +37,6 @@ export const QUERY_KEYS = {
     nowPlaying: (page: number) => ['movies', 'now-playing', page] as const,
     details: (id: number) => ['movie', id] as const,
     search: (query: string, page: number) => ['movies', 'search', query, page] as const,
+    newRelease: (region: string, page: number) => ['movies', 'new-release', region, page] as const,
   },
 } as const;
