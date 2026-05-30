@@ -1,13 +1,16 @@
+// import { getImageUrl } from '@/lib/utils';
+import { getImageUrl } from '@/lib/utils';
 import {
   //   usePopularMovies,
   useTrendingMovies,
   //   useWatchTrailer,
-  //   useNowPlayingMovies,
-  useNewReleaseMovies,
+  useNowPlayingMovies,
+  // useNewReleaseMovies,
   //   useMovieDetail,
 } from '../hooks/useMovies';
 
 import { LucideTv, Play, Search, Star } from 'lucide-react';
+import { IMAGE_SIZES } from '@/lib/constants';
 
 // const movies = trendingMovies?.results ?? [];
 
@@ -15,9 +18,20 @@ export default function HomePage() {
   const { data: trendingMovies, isLoading: trendingLoading, isError } = useTrendingMovies('week');
   // const { data: popularMovies, isLoading: popularLoading } = usePopularMovies();
 
-  // const { data: nowPlayingMovies, isLoading: playingLoading } = useNowPlayingMovies();
-  const { data: newReleaseMovies, isLoading: releaseLoading } = useNewReleaseMovies('ID');
+  const { data: nowPlayingMovies, isLoading: playingLoading } = useNowPlayingMovies();
+  //   const { data: newReleaseMovies, isLoading: releaseLoading } = useNewReleaseMovies('ID');
 
+  const releases = nowPlayingMovies?.results ?? [];
+
+  if (playingLoading) {
+    return <div>Loading new release... </div>;
+  }
+  if (isError) {
+    return <div>Failed to fetch new release ... </div>;
+  }
+
+  // const play = nowPlayingMovies?.results ?? [];
+  // const playing = play.length > 0 ? play[0]:null;
   //   FALLBACK EMPTY ARRAY
 
   //   const { data: videoData } = useWatchTrailer(heroMovie?.id ?? 0);
@@ -27,8 +41,6 @@ export default function HomePage() {
   //   );
 
   const movies = trendingMovies?.results ?? [];
-
-  const releases = newReleaseMovies?.results ?? [];
 
   const heroMovie = movies.length > 0 ? movies[0] : null;
 
@@ -40,20 +52,21 @@ export default function HomePage() {
     return <div>Failed to fetch movies</div>;
   }
   return (
-    <div id="home" className="bg-linear-to-t from-black to-0%">
+    <div id="home">
       <img
-        src={`https://image.tmdb.org/t/p/original${heroMovie?.backdrop_path}`}
+        // src={`https://image.tmdb.org/t/p/original${heroMovie?.backdrop_path}`}
+        src={getImageUrl(heroMovie?.backdrop_path, IMAGE_SIZES.backdrop.large)}
         alt={heroMovie?.title}
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full max-h-225 object-cover z-0"
       />
       <div className="absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent pb-20 z-20" />
 
-      <header className="absolute top-0 left-0 w-full z-50">
+      <header className=" top-0 left-0 w-full z-50">
         <div className="max-w-360 mx-auto px-35">
           <div className="grid grid-cols-5 items-center h-24 ">
             {/* COL-1 */}
-            <div className="flex items-center gap-2">
-              <LucideTv size={32} />
+            <div className="absolute flex items-center gap-2">
+              <LucideTv size={32} className="fill-yellow-400" />
               <span className="font-bold text-4xl ">Movie</span>
             </div>
             {/* COL-2 */}
@@ -80,14 +93,14 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section>
+      <section className="pb-25 ">
         <div className="absolute inset-0 z-20 flex flex-col justify-center  items-start">
-          <div className="max-w-158.75 pl-35">
+          <div className="my-auto max-w-158.75 max-h-66.5 pl-35">
             <h1 className="text-5xl  font-bold  z-60">{heroMovie?.title}</h1>
             <p className="text-base">{heroMovie?.overview}</p>
             <div className="mt-12 grid grid-cols-2">
               <div className="relative">
-                <button className="flex justify-center items-center w-full h-12 gap-2 font-bold text-center text-base text-white   bg-[#961200] rounded-full">
+                <button className="relative flex justify-center items-center w-full h-12 gap-2 font-bold text-center text-base text-white   bg-[#961200] rounded-full">
                   <span>Watch Trailer</span>
                   <Play size={24} className=" bg-white fill-[#961200] rounded-full items-end" />
                 </button>
@@ -105,7 +118,7 @@ export default function HomePage() {
       </section>
 
       {/* TRENDING NOW */}
-      <section className="relative z-30 lg:pt-195 px-35">
+      <section className="relative z-30 lg:pt-202.5 px-35">
         <h2 className="h-10 text-4xl font-bold">Trending Now</h2>
         <div className="pt-10 flex gap-5 overflow-x-auto scrollbar-hide ">
           <div className="col-start-6 bg-linear-to-l from-gray-900 via-black/0 to-transparent " />
@@ -118,13 +131,15 @@ export default function HomePage() {
             "
             >
               <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                // src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                src={getImageUrl(movie.poster_path, IMAGE_SIZES.poster.large)}
+                // src={getImageUrl(movie.poster_path)}
                 alt={movie.title}
                 className="rounded-xl"
               />
               <div className="p-4 ">
                 <h3 className="font-semibold ">{movie.title}</h3>
-                <div className="flex gap-4 justify-between">
+                <div className="flex items-center gap-2">
                   <Star size={16} className="fill-yellow-400 text-yellow-400" />
                   <span className="text-yellow-400 text-base">{movie.vote_average.toFixed(1)}</span>
                 </div>
@@ -135,17 +150,18 @@ export default function HomePage() {
       </section>
 
       {/* NEW RELEASE */}
-      <section className="relative z-30 px35 pt-20">
+      <section className="relative z-30 px-35 pt-20">
         <h2 className="text-4xl font-bold mb-10">New Release</h2>
-
-        {releaseLoading ? (
+        {playingLoading ? (
           <p>Loading . . . </p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             {releases.map((movie) => (
+              // console.log(movie.title, movie.poster_path);
               <div key={movie.id} className="group">
                 <img
-                  src={`https://image.tmdb.org/t/p/500${movie.poster_path}`}
+                  //   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  src={getImageUrl(movie.poster_path, IMAGE_SIZES.poster.large)}
                   alt={movie.title}
                   className="
                         rounded-xl
@@ -165,23 +181,18 @@ export default function HomePage() {
             ))}
           </div>
         )}
-        {/* NEW RELEASE MOVIES SECTION */}
-        {/* <div className="grid grid-cols-5"
-      key={newReleaseMovies?.region}
-      >
-        {newReleaseMovies?.list}
-        <img src={Star size(28)} alt="Rating" />
-        <span>
-            {newReleaseMovies.vote}
-        </span>
-        <button>Load more</button>
-      </div> */}
+        <button className="rounded-full font-bolt items-center w-57.5 h-13 text-base bg-gray-800 text-[#FDFDFD]">
+          Load More
+        </button>
       </section>
 
       {/* FOOTER */}
-      <footer>
-        {/* <img src="" alt="movie logo app" /> */}
-        <p>Copyright &copy;2025 Movie Explorer</p>
+      <footer className="h-30 flex justify-between">
+        <div className="flex pl-35">
+          <LucideTv size={32} />
+          <span className="font-bold text-4xl">Movie</span>
+          <p className="text-right ">Copyright &copy;2025 Movie Explorer</p>
+        </div>
       </footer>
     </div>
   );

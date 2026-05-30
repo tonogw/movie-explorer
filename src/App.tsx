@@ -11,15 +11,27 @@ function App() {
   // { data, isLoading, isError }
 
   return (
-    <div className="min-h-screen bg-background bg-black text-[#FDFDFD]">
+    <div className=" bg-background bg-black text-[#FDFDFD]">
       <HomePage />
-      <header className="border-b">
+    </div>
+  );
+}
+export default App;
+// {}
+// {}
+/* <header className="border-b">
         <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold">Movie Explorer</h1>
-          {/* TODO: Add navigation menu */}
-        </div>
-      </header>
-      <main className="container mx-auto px-4 py-8">
+          <h1 className="text-2xl font-bold">Movie Explorer</h1> */
+// {}
+// {}
+/* TODO: Add navigation menu */
+// {}
+// {}
+/* </div>
+      </header> */
+// {}
+// {}
+/* <main className="container mx-auto px-4 py-8">
         <div className="text-center space-y-4">
           <h2 className="text-4xl font-bold">Challenge 9 - Movie App</h2>
           <p className="text-muted-foreground">
@@ -37,11 +49,8 @@ function App() {
             </ol>
           </div>
         </div>
-      </main>
+      </main> */
 
-      <p className="text-center">TEST</p>
-    </div>
-  );
-}
-
-export default App;
+// </div>
+//   )
+// };

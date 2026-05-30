@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { movieService } from '@/services/movieService';
-import type { MovieResponse, WatchTrailer, TrailerResponse } from '@/types/movie';
+import type { MovieResponse } from '@/types/movie';
 // import type { Movie } from '@/types/movie';
 // import {movieService} from "../../src/services/movieService";
 // TODO: Create custom hooks using React Query
@@ -41,13 +41,13 @@ export const useNowPlayingMovies = () => {
 };
 
 // Hook to fetch new release movies regions based country specific
-export const useNewReleaseMovies = (region: 'ID') => {
-  return useQuery<MovieResponse>({
-    queryKey: ['new-release', region],
+// export const useNewReleaseMovies = (region: string) => {
+//   return useQuery({
+//     queryKey: ['new-release', region],
 
-    queryFn: () => movieService.newReleaseMovies(region),
-  });
-};
+//     queryFn: () => movieService.newReleaseMovies(region),
+//   });
+// };
 
 // Hook to fetch movie credits
 export const useMovieCredits = (movieId: number) => {

@@ -50,9 +50,17 @@ export const movieService = {
     return response.data;
   },
 
+  // https://api.themoviedb.org/3/movie/upcoming
   // ENDpoint: GET /search/movie/region?"ID"
-  newReleaseMovies: async (region: 'ID'): Promise<MovieResponse> => {
-    const response = await api.get<MovieResponse>(`/search/movie/${region}`);
+  newReleaseMovies: async (): Promise<MovieResponse> => {
+    const response = await api.get<MovieResponse>(
+      `/movie/upcoming`
+      // params: {
+      //   query: keyword,
+      //   region,
+      //   // sort_by: 'primary_release_date.desc',
+      // },
+    );
     return response.data;
   },
 
