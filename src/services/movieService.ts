@@ -67,4 +67,11 @@ export const movieService = {
     const response = await api.get<DetailResponse>(`/movie/${movieId}`);
     return response.data;
   },
+
+  // ENDpoint: GET YouTube
+  getMovieTrailer: async (movieId: number) => {
+    const response = await api.get(`/movie/${movieId}/video`);
+
+    return response.data;
+  },
 };
