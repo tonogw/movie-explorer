@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { movieService } from '@/services/movieService';
-import type { MovieResponse } from '@/types/movie';
+import type { MovieResponse, WatchTrailer, TrailerResponse } from '@/types/movie';
 // import type { Movie } from '@/types/movie';
 // import {movieService} from "../../src/services/movieService";
 // TODO: Create custom hooks using React Query
@@ -66,6 +66,17 @@ export const useMovieDetail = (movieId: number) => {
     queryKey: ['movie-detail', movieId],
 
     queryFn: () => movieService.getMovieDetail(movieId),
+
+    enabled: !!movieId,
+  });
+};
+
+// Hook to fetch movie trailer
+export const useWatchTrailer = (movieId: number) => {
+  return useQuery({
+    queryKey: [`movie-videos`, movieId],
+
+    queryFn: () => movieService.getMovieTrailer(movieId),
 
     enabled: !!movieId,
   });
