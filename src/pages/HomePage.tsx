@@ -16,7 +16,7 @@ export default function HomePage() {
   // const { data: popularMovies, isLoading: popularLoading } = usePopularMovies();
 
   // const { data: nowPlayingMovies, isLoading: playingLoading } = useNowPlayingMovies();
-  //   const { data: newReleaseMovies, isLoading: releaseLoading } = useNewReleaseMovies('ID');
+  const { data: newReleaseMovies, isLoading: releaseLoading } = useNewReleaseMovies('ID');
 
   //   FALLBACK EMPTY ARRAY
 
@@ -27,6 +27,8 @@ export default function HomePage() {
   //   );
 
   const movies = trendingMovies?.results ?? [];
+
+  const releases = newReleaseMovies?.results ?? [];
 
   const heroMovie = movies.length > 0 ? movies[0] : null;
 
@@ -134,6 +136,35 @@ export default function HomePage() {
 
       {/* NEW RELEASE */}
       <section className="relative z-30 px35 pt-20">
+        <h2 className="text-4xl font-bold mb-10">New Release</h2>
+
+        {releaseLoading ? (
+          <p>Loading . . . </p>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            {releases.map((movie) => (
+              <div key={movie.id} className="group">
+                <img
+                  src={`https://image.tmdb.org/t/p/500${movie.poster_path}`}
+                  alt={movie.title}
+                  className="
+                        rounded-xl
+                        transition
+                        duration-300
+                        group-hover:scale-105
+                        "
+                />
+                <div className="mt-4">
+                  <h3 className="font-semibold line-clamp-1">{movie.title}</h3>
+                  <div className="flex items-center gap-2">
+                    <Star size={16} className="fill-yellow-400 text-yellow-400" />
+                    <span className="text-yellow-400">{movie.vote_average.toFixed(1)}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
         {/* NEW RELEASE MOVIES SECTION */}
         {/* <div className="grid grid-cols-5"
       key={newReleaseMovies?.region}
