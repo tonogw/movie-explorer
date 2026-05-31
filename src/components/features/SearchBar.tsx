@@ -11,7 +11,7 @@ export default function SearchBar() {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Search Movie"
-        className="hidden min-w-97.5 md:max-w-60.75 border  rounded-lg h-10 bg-gray-700 text-white placeholder:text-gray-400 "
+        className=" min-w-97.5 md:max-w-60.75 border  rounded-lg h-10 bg-gray-700 text-white placeholder:text-gray-400 "
       />
     </div>
   );
