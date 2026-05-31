@@ -42,14 +42,14 @@ export default function HomePage2() {
         <img
           src={getImageUrl(heroMovie?.backdrop_path, IMAGE_SIZES.backdrop.large)}
           alt={heroMovie?.title}
-          className="absolute inset-0 w-full lg:max-h-225 object-cover z-0"
+          className="absolute inset-0 w-full h-97.5 lg:max-h-225 object-cover z-0"
         />
-        <div className="lg:max-h-225 absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent " />
+        <div className="h-97.5 lg:max-h-225 absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent " />
       </section>
 
       <header className="absolute top-0 left-0 w-full z-50">
-        <div className="max-w-360 mx-auto px-35">
-          <div className="pt-10 grid grid-cols-5 items-center h-24 ">
+        <div className="max-w-97.5 lg:max-w-360 mx-auto px-2 lg:px-35">
+          <div className="pt-4 md:pt-6 lg:pt-10 grid grid-cols-1 lg:grid-cols-5 items-center h-24 ">
             {/* COL-1 */}
             <div className="absolute flex items-center gap-2">
               <LucideTv size={32} className="fill-yellow-400" />
@@ -60,7 +60,7 @@ export default function HomePage2() {
               <a href="#home">Home</a>
               <a href="#favorites">Favorites</a>
             </nav>
-            <div className="col-start-5">
+            <div className="col-start-2 lg:col-start-5">
               <div className="relative ">
                 <Search
                   size={18}
@@ -78,16 +78,16 @@ export default function HomePage2() {
               </div>
             </div>
 
-            <div className="grid grid-cols-subgrid col-span-2">
-              <h1 className="row-start-2 col-start-1 pt-[298px] text-5xl  font-bold ">
+            <div className="grid grid-cols-1 lg:grid-cols-subgrid col-span-2">
+              <h1 className="row-start-2 col-start-1 pt-[298px] text-2xl lg:text-5xl  font-bold ">
                 {heroMovie?.title}
               </h1>
 
-              <p className="col-span-2 row-start-3 pt-2  text-base">{heroMovie?.overview}</p>
+              <p className=" col-span-2 row-start-3 pt-2  text-base">{heroMovie?.overview}</p>
 
               <button
                 onClick={() => console.log('WATCH TRAILER clicked')}
-                className="row-start-4 col-start-1 relative flex justify-center items-center w-full h-12 gap-2 font-bold text-center text-base text-white   bg-[#961200] rounded-full z-50"
+                className="col-span-2 lg:row-start-4 col-start-1 relative flex justify-center items-center w-full h-12 gap-2 font-bold text-center text-base text-white   bg-[#961200] rounded-full z-50"
               >
                 <span>Watch Trailer</span>
                 <Play
@@ -107,16 +107,16 @@ export default function HomePage2() {
       </header>
 
       {/* TRENDING NOW */}
-      <section className="relative z-20 lg:pt-202.5 px-35">
+      <section className="relative z-20 pt-55.75 lg:pt-202.5 px-2 md:px-20 lg:px-35">
         <h2 className="h-10 text-4xl font-bold">Trending Now</h2>
-        <div className="pt-10 flex gap-5 overflow-x-auto scrollbar-hide">
+        <div className="pt-10 flex gap-4 lg:gap-5 overflow-x-auto scrollbar-hide">
           <div className="col-start-6 bg-linear-to-l from-gray-900 via-black/0 to-transparent  " />
           {movies.map((movie) => (
             <div
               key={movie.id}
               className="
                   overflow-x-hidden
-                  group block min-w-55
+                  group block min-w-43.25 min-h-66.5 lg:w-55 
                   scrollbar-hide
                   "
             >
@@ -127,14 +127,14 @@ export default function HomePage2() {
       </section>
 
       {/* NEW RELEASE */}
-      <section className="relative z-30 px-35 pt-20">
+      <section className="relative z-30 px-2 md:px-10 lg:px-35 pt-2 md:pt-5 lg:pt-20">
         <h2 className="text-4xl font-bold mb-10">New Release</h2>
         {playingLoading ? (
           <p>Loading . . . </p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             {releases.map((movie) => (
-              <div key={movie.id} className="group">
+              <div key={movie.id} className="group block min-w-43.25 min-h-66.5 lg:w-55">
                 <MovieCard movie={movie} />
               </div>
             ))}
