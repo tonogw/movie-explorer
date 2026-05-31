@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { LucideTv, Play, Search } from 'lucide-react';
 import { IMAGE_SIZES } from '@/lib/constants';
 import { Link } from 'react-router-dom';
-// import MovieCard from '@/components/features/MovieCard';
+import MovieCard from '@/components/features/MovieCard';
 
 export default function HomePage2() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -14,9 +14,8 @@ export default function HomePage2() {
   // const { data: popularMovies, isLoading: popularLoading } = usePopularMovies();
 
   const { data: nowPlayingMovies, isLoading: playingLoading } = useNowPlayingMovies();
-  //   const { data: newReleaseMovies, isLoading: releaseLoading } = useNewReleaseMovies('ID');
 
-  //   const releases = nowPlayingMovies?.results ?? [];
+  const releases = nowPlayingMovies?.results ?? [];
 
   if (playingLoading) {
     return <div>Loading new release... </div>;
@@ -87,7 +86,7 @@ export default function HomePage2() {
               <p className="col-span-2 row-start-3 pt-2  text-base">{heroMovie?.overview}</p>
 
               <button
-                onClick={() => console.log('clicked')}
+                onClick={() => console.log('WATCH TRAILER clicked')}
                 className="row-start-4 col-start-1 relative flex justify-center items-center w-full h-12 gap-2 font-bold text-center text-base text-white   bg-[#961200] rounded-full z-50"
               >
                 <span>Watch Trailer</span>
@@ -98,7 +97,7 @@ export default function HomePage2() {
               </button>
               <Link
                 to={`/movie/${heroMovie?.id}`}
-                className="row-start-4 col-start-2 flex h-12 items-center justify-center  text-center align-middle z-50"
+                className="row-start-4 col-start-2 flex h-12 items-center justify-center  text-center align-middle z-50 border border-gray-600 rounded-full ml-5 bg-black/20 backdrop-opacity-15"
               >
                 See Detail
               </Link>
@@ -106,6 +105,58 @@ export default function HomePage2() {
           </div>
         </div>
       </header>
+
+      {/* TRENDING NOW */}
+      <section className="relative z-20 lg:pt-202.5 px-35">
+        <h2 className="h-10 text-4xl font-bold">Trending Now</h2>
+        <div className="pt-10 flex gap-5 overflow-x-auto scrollbar-hide">
+          <div className="col-start-6 bg-linear-to-l from-gray-900 via-black/0 to-transparent  " />
+          {movies.map((movie) => (
+            <div
+              key={movie.id}
+              className="
+                  overflow-x-hidden
+                  group block min-w-55
+                  scrollbar-hide
+                  "
+            >
+              <MovieCard movie={movie} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* NEW RELEASE */}
+      <section className="relative z-30 px-35 pt-20">
+        <h2 className="text-4xl font-bold mb-10">New Release</h2>
+        {playingLoading ? (
+          <p>Loading . . . </p>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            {releases.map((movie) => (
+              <div key={movie.id} className="group">
+                <MovieCard movie={movie} />
+              </div>
+            ))}
+            <div className="lg:max-h-225 absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent " />
+            <button
+              onClick={() => console.log('LOAD MORE clicked')}
+              className="font-bolt items-center justify-center w-57.5 h-13 text-base border border-gray-600 rounded-full ml-5 bg-black/20 backdrop-opacity-15 text-[#FDFDFD]"
+            >
+              Load More
+            </button>
+          </div>
+        )}
+      </section>
+
+      {/* FOOTER */}
+      <footer className="h-30 flex justify-between">
+        <div className="flex pl-35">
+          <LucideTv size={32} />
+          <span className="font-bold text-4xl">Movie</span>
+          <p className="text-right ">Copyright &copy; 2025 Movie Explorer</p>
+        </div>
+      </footer>
     </div>
   );
 }
