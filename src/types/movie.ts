@@ -2,6 +2,12 @@
 // Hint: Check TMDB API documentation for the movie object structure
 // https://developer.themoviedb.org/reference/movie-details
 
+// import type { Movie } from '@/types/movie';
+
+export interface MovieCardProps {
+  movie: Movie;
+}
+
 export interface Movie {
   // TODO: Add movie properties based on TMDB API response
   // Examples: id, title, overview, poster_path, etc.

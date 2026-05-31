@@ -1,6 +1,6 @@
 // Constants untuk aplikasi
 
-import type { Search } from 'lucide-react';
+// import type { Search } from 'lucide-react';
 
 // TODO: Define constants yang digunakan di seluruh aplikasi
 

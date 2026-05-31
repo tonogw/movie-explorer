@@ -15,7 +15,7 @@ function App() {
     <div className=" bg-background bg-black text-[#FDFDFD]">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/movie/:id" element={<MovieDetailPage />} />
+        <Route path="/movie/:movieId" element={<MovieDetailPage />} />
       </Routes>
     </div>
   );

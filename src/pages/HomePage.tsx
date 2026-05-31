@@ -15,6 +15,7 @@ import { useState } from 'react';
 import { LucideTv, Play, Search, Star } from 'lucide-react';
 import { IMAGE_SIZES } from '@/lib/constants';
 import { Link } from 'react-router-dom';
+import MovieCard from '@/components/features/MovieCard';
 // import { useSearchParams } from 'react-router-dom';
 
 // const movies = trendingMovies?.results ?? [];
@@ -135,39 +136,20 @@ export default function HomePage() {
       {/* TRENDING NOW */}
       <section className="relative z-20 lg:pt-202.5 px-35">
         <h2 className="h-10 text-4xl font-bold">Trending Now</h2>
-        <div className="pt-10 flex gap-5 overflow-x-auto scrollbar-hide ">
-          <div className="col-start-6 bg-linear-to-l from-gray-900 via-black/0 to-transparent " />
+        <div className="pt-10 flex gap-5 overflow-x-auto ">
+          <div className="col-start-6 bg-linear-to-l from-gray-900 via-black/0 to-transparent  " />
           {movies.map((movie) => (
-            <Link
+            <div
               key={movie.id}
-              to={`/movie/${movie.id}`}
               className="
-              group block min-w-55"
+            overflow-x-hidden
+            group block min-w-55
+            scrollbar-hide
+
+            "
             >
-              <div
-                // key={movie.id}
-                className="
-              overflow-x-hidden
-              "
-              >
-                <img
-                  // src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  src={getImageUrl(movie.poster_path, IMAGE_SIZES.poster.large)}
-                  // src={getImageUrl(movie.poster_path)}
-                  alt={movie.title}
-                  className="rounded-xl"
-                />
-                <div className="p-4 ">
-                  <h3 className="font-semibold ">{movie.title}</h3>
-                  <div className="flex items-center gap-2">
-                    <Star size={16} className="fill-yellow-400 text-yellow-400" />
-                    <span className="text-yellow-400 text-base">
-                      {movie.vote_average.toFixed(1)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
+              <MovieCard movie={movie} />
+            </div>
           ))}
         </div>
       </section>
@@ -182,7 +164,9 @@ export default function HomePage() {
             {releases.map((movie) => (
               // console.log(movie.title, movie.poster_path);
               <div key={movie.id} className="group">
-                <img
+                <MovieCard movie={movie} />
+
+                {/* <img
                   //   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   src={getImageUrl(movie.poster_path, IMAGE_SIZES.poster.large)}
                   alt={movie.title}
@@ -199,7 +183,7 @@ export default function HomePage() {
                     <Star size={16} className="fill-yellow-400 text-yellow-400" />
                     <span className="text-yellow-400">{movie.vote_average.toFixed(1)}</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>

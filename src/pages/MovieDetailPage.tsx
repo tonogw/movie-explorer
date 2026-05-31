@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom';
-import { useMovieDetail } from '@/hooks/useMovies';
+// import { useMovieDetail } from '@/hooks/useMovies';
 
 export default function MovieDetailPage() {
-  const { id } = useParams();
+  const { movieId } = useParams();
 
-  const { data, isLoading } = useMovieDetail(Number(id));
+  //   const { data, isLoading } = useMovieDetail(Number(id));
   return (
     <div className="bg-black text-[#FDFDFD] text-4xl text-center pt-10">
       <h1>Movie Detail</h1>
-      <p>Movie ID: {id}</p>
+      <p>Movie ID: {movieId}</p>
     </div>
   );
 }
