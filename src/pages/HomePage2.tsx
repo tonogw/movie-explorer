@@ -141,7 +141,7 @@ export default function HomePage2() {
             <div className="lg:max-h-225 absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent " />
             <button
               onClick={() => console.log('LOAD MORE clicked')}
-              className="font-bolt items-center justify-center w-57.5 h-13 text-base border border-gray-600 rounded-full ml-5 bg-black/20 backdrop-opacity-15 text-[#FDFDFD]"
+              className="col-start-3 font-bolt items-center justify-center w-57.5 h-13 text-base border border-gray-600 rounded-full  bg-black/20 backdrop-opacity-15 text-[#FDFDFD]"
             >
               Load More
             </button>
@@ -150,12 +150,12 @@ export default function HomePage2() {
       </section>
 
       {/* FOOTER */}
-      <footer className="h-30 flex justify-between">
-        <div className="flex pl-35">
+      <footer className="flex justify-between items-center px-35 py-10">
+        <div className="flex items-center gap-2">
           <LucideTv size={32} />
           <span className="font-bold text-4xl">Movie</span>
-          <p className="text-right ">Copyright &copy; 2025 Movie Explorer</p>
         </div>
+        <p className="text-right ">Copyright &copy; 2025 Movie Explorer</p>
       </footer>
     </div>
   );
