@@ -1,7 +1,9 @@
 import './index.css';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '@/pages/HomePage';
+// import HomePage from '@/pages/HomePage';
 import MovieDetailPage from './pages/MovieDetailPage';
+// import HomePage from './pages/HomePage';
+import HomePage2 from './pages/HomePage2';
 
 // import MovieDetailPage from '@/pages/MovieDetailPage';
 
@@ -14,7 +16,7 @@ function App() {
   return (
     <div className=" bg-background bg-black text-[#FDFDFD]">
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage2 />} />
         <Route path="/movie/:movieId" element={<MovieDetailPage />} />
       </Routes>
     </div>

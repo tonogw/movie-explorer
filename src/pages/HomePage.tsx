@@ -12,7 +12,7 @@ import {
 
 import { useState } from 'react';
 
-import { LucideTv, Play, Search, Star } from 'lucide-react';
+import { LucideTv, Play, Search } from 'lucide-react';
 import { IMAGE_SIZES } from '@/lib/constants';
 import { Link } from 'react-router-dom';
 import MovieCard from '@/components/features/MovieCard';
@@ -64,9 +64,9 @@ export default function HomePage() {
         // src={`https://image.tmdb.org/t/p/original${heroMovie?.backdrop_path}`}
         src={getImageUrl(heroMovie?.backdrop_path, IMAGE_SIZES.backdrop.large)}
         alt={heroMovie?.title}
-        className="absolute inset-0 w-full max-h-225 object-cover z-0"
+        className="absolute inset-0 w-full lg:max-h-225 object-cover z-0"
       />
-      <div className="absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent pb-20 " />
+      <div className="lg:max-h-225 absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent pb-20 " />
 
       <header className="absolute top-0 left-0 w-full z-50">
         <div className="max-w-360 mx-auto px-35">
