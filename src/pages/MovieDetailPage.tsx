@@ -1,34 +1,14 @@
-import { useParams } from "react-router-dom";
-import { useMovieDetail } from "@/hooks/useMovies";
-
-
+import { useParams } from 'react-router-dom';
+import { useMovieDetail } from '@/hooks/useMovies';
 
 export default function MovieDetailPage() {
-    const { id } = useParams();
-    return (
+  const { id } = useParams();
 
-          <Routes>
-          <Route path="/" element={<HomePage />} />
-
-          <Route path="/movie/:id" element={<MovieDetailPage />} />
-        </Routes>
-        {isLoading && <h2>Loading movies . . . </h2>}
-
-        {/* TODO: Replace this with your actual application routes and components */}
-        {data?.results.map((movie) => (
-          <div key={movie.id} className="border p-4 rounded-lg">
-            <h2 className="text-xl font-bold">{movie.title}</h2>
-
-            <p>
-              rating:
-              {movie.vote_average}
-            </p>
-
-            <p>
-              Release:
-              {movie.release_date}
-            </p>
-          </div>
-        ))}
-    )
+  const { data, isLoading } = useMovieDetail(Number(id));
+  return (
+    <div className="bg-black text-[#FDFDFD] text-4xl text-center pt-10">
+      <h1>Movie Detail</h1>
+      <p>Movie ID: {id}</p>
+    </div>
+  );
 }

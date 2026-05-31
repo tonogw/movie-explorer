@@ -81,3 +81,13 @@ export const useWatchTrailer = (movieId: number) => {
     enabled: !!movieId,
   });
 };
+
+// Hook to fetch search movie
+export const useSearchMovies = (query: string) => {
+  // const [searchQuery, setSearhQuery] = useState('');
+  return useQuery({
+    queryKey: ['search-movies', query],
+    queryFn: () => movieService.searchMovies(query),
+    enabled: query.length > 0,
+  });
+};

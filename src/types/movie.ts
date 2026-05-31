@@ -6,14 +6,14 @@ export interface Movie {
   // TODO: Add movie properties based on TMDB API response
   // Examples: id, title, overview, poster_path, etc.
   adult: boolean;
-  backdrop_path: string;
+  backdrop_path: string | null;
   genre_ids: Array<number>; //sample [18, 53, 35]
   id: number;
   original_language: string;
   original_title: string;
   overview: string;
   popularity: number;
-  poster_path: string;
+  poster_path: string | null;
   release_date: string;
   title: string;
   video: boolean;

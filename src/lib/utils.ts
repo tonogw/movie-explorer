@@ -10,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 // Hint: TMDB returns relative paths, you need to construct full image URLs
 // Reference: https://developer.themoviedb.org/docs/image-basics
 
-export function getImageUrl(path: string | null | undefined, size: string = 'w500'): string {
+export function getImageUrl(path: string | null | undefined, size: string) {
   if (!path) {
     return '/placeholder-poster.png';
   }

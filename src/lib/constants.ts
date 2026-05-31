@@ -1,5 +1,7 @@
 // Constants untuk aplikasi
 
+import type { Search } from 'lucide-react';
+
 // TODO: Define constants yang digunakan di seluruh aplikasi
 
 export const IMAGE_SIZES = {
@@ -29,6 +31,7 @@ export const IMAGE_SIZES = {
 export const STORAGE_KEYS = {
   favorites: 'movie-favorites',
   watchlist: 'movie-watchlist',
+  search: 'search-movies',
 } as const;
 
 export const QUERY_KEYS = {

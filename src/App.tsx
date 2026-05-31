@@ -1,6 +1,7 @@
 import './index.css';
-// import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import HomePage from '@/pages/HomePage';
+import MovieDetailPage from './pages/MovieDetailPage';
 
 // import MovieDetailPage from '@/pages/MovieDetailPage';
 
@@ -12,7 +13,10 @@ function App() {
 
   return (
     <div className=" bg-background bg-black text-[#FDFDFD]">
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movie/:id" element={<MovieDetailPage />} />
+      </Routes>
     </div>
   );
 }
