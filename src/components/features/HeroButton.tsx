@@ -8,10 +8,10 @@ interface HeroContentProps {
 
 export default function HeroButton({ movie }: HeroContentProps) {
   return (
-    <div className="flex">
+    <div className="mt-8 flex gap-4 ">
       <button
         onClick={() => console.log('WATCH TRAILER clicked')}
-        className="col-span-2 lg:row-start-4 col-start-1 relative flex justify-center items-center w-full h-12 gap-2 font-bold text-center text-base text-white   bg-[#961200] rounded-full z-50"
+        className=" relative flex justify-center items-center w-full h-12 gap-2 font-bold text-center text-base text-white   bg-[#961200] rounded-full z-50"
       >
         <span>Watch Trailer</span>
         <Play
@@ -20,7 +20,7 @@ export default function HeroButton({ movie }: HeroContentProps) {
         />
       </button>
       <Link
-        to={`/movie/${movie}`}
+        to={`/movie/${movie.id}`}
         className="row-start-4 col-start-2 flex h-12 items-center justify-center  text-center align-middle z-50 border border-gray-600 rounded-full ml-5 bg-black/20 backdrop-opacity-15"
       >
         See Detail
