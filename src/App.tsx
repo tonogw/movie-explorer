@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 // import HomePage from '@/pages/HomePage';
 import MovieDetailPage from './pages/MovieDetailPage';
 // import HomePage from './pages/HomePage';
-import HomePage2 from './pages/HomePage2';
+// import HomePage2 from './pages/HomePage2';
+import Homepage3 from './pages/HomePage3';
 
 // import MovieDetailPage from '@/pages/MovieDetailPage';
 
@@ -14,12 +15,12 @@ function App() {
   // { data, isLoading, isError }
 
   return (
-    <div className=" bg-background bg-black text-[#FDFDFD]">
-      <Routes>
-        <Route path="/" element={<HomePage2 />} />
-        <Route path="/movie/:movieId" element={<MovieDetailPage />} />
-      </Routes>
-    </div>
+    // <div className=" bg-background bg-black text-[#FDFDFD]">
+    <Routes>
+      <Route path="/" element={<Homepage3 />} />
+      <Route path="/movie/:movieId" element={<MovieDetailPage />} />
+    </Routes>
+    // </div>
   );
 }
 export default App;

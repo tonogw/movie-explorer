@@ -40,7 +40,7 @@ export default function HomePage2() {
     <div id="home">
       <section>
         <img
-          src={getImageUrl(heroMovie?.backdrop_path, IMAGE_SIZES.backdrop.large)}
+          src={getImageUrl(heroMovie?.backdrop_path, IMAGE_SIZES.backdrop.original)}
           alt={heroMovie?.title}
           className="absolute inset-0 w-full h-97.5 lg:max-h-225 object-cover z-0"
         />
