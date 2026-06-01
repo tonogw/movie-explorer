@@ -7,18 +7,22 @@ export default function SearchBar() {
   return (
     // DESKTOP
     <div className="hidden md:block ">
-      <Search size={32} className=" relative min-w-97.5 lg:max-w-360 px-2 lg:px-35" />
-      <input
-        id="desktop-search"
-        name="desktop-search"
-        type="text"
-        autoFocus
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search Movie"
-        className="absolute pl-10 min-w-97.5 md:max-w-60.75 border  rounded-lg h-10 bg-gray-700 text-white placeholder:text-gray-400 "
-      />
-      // MOBILE
+      <div className="relative">
+        <Search size={24} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+        <input
+          id="desktop-search"
+          name="desktop-search"
+          type="text"
+          autoFocus
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search Movie"
+          className=" pl-10 min-w-97.5 md:max-w-60.75 border border-gray-600 rounded-lg h-10 bg-gray-700 text-white placeholder:text-gray-400 "
+        />
+      </div>
+      <div />
+
+      {/* // MOBILE */}
       <button
         onClick={() => setOpen(true)}
         className="
