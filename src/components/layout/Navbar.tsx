@@ -1,5 +1,6 @@
 import { LucideTv } from 'lucide-react';
 import SearchBar from '../features/SearchBar';
+import MobileMenu from '../features/MobileMenu';
 
 export default function Navbar() {
   //   const [searchQuery, setSearchQuery] = useState('');
@@ -18,7 +19,10 @@ export default function Navbar() {
           <a href="#home">Home</a>
           <a href="#favorites">Favorites</a>
         </div>
-        <SearchBar />
+        <div className="flex items-center gap-4">
+          <SearchBar />
+          <MobileMenu />
+        </div>
       </div>
     </nav>
   );

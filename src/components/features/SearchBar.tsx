@@ -17,7 +17,7 @@ export default function SearchBar() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search Movie"
-          className=" pl-10 min-w-97.5 md:max-w-60.75 border border-gray-600 rounded-lg h-10 bg-gray-700 text-white placeholder:text-gray-400 "
+          className=" pl-10 min-w-60.75 md:max-w-60.75 border border-gray-600 rounded-lg h-10 bg-gray-700 text-white placeholder:text-gray-400 "
         />
       </div>
       <div />
@@ -51,6 +51,13 @@ export default function SearchBar() {
               className="flex-1 h-12 rounded-lg px-4"
               type="text"
             />
+            {searchQuery && (
+              <div className="absolute top-12 left-0 w-full bg-black rounded-lg">
+                {data?.results?.slice(0, 5).map((movie) => (
+                  <div key={movie.id}>{movie.title}</div>
+                ))}
+              </div>
+            )}
             <button onClick={() => setOpen(false)}>
               <X />
             </button>
