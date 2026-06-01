@@ -2,9 +2,9 @@ import './index.css';
 import { Routes, Route } from 'react-router-dom';
 // import HomePage from '@/pages/HomePage';
 import MovieDetailPage from './pages/MovieDetailPage';
-// import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage';
 // import HomePage2 from './pages/HomePage2';
-import Homepage3 from './pages/HomePage3';
+// import Homepage3 from './pages/HomePage3';
 // import HeroContent from './components/features/HeroContent';
 // import HeroSection from './components/features/HeroSection';
 // import MovieDetailPage from '@/pages/MovieDetailPage';
@@ -18,7 +18,7 @@ function App() {
   return (
     // <div className=" bg-background bg-black text-[#FDFDFD]">
     <Routes>
-      <Route path="/" element={<Homepage3 />} />
+      <Route path="/" element={<HomePage />} />
       {/* <Route path="/" element={<HeroSection />} /> */}
       <Route path="/movie/:movieId" element={<MovieDetailPage />} />
     </Routes>
