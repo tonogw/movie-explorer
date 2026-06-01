@@ -21,14 +21,15 @@ export default function NewReleaseSection() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
         {releases.slice(0, 10).map((movie) => (
-          <div key={movie.id} className="group block min-w-43.25 min-h-66.5 lg:w-55">
+          //   <div key={movie.id} className="group block min-w-43.25 min-h-66.5 lg:w-55">
+          <div key={movie.id} className="">
             <MovieCard movie={movie} />
           </div>
         ))}
         {/* <div className="lg:max-h-225 absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent " /> */}
         <button
           onClick={() => console.log('LOAD MORE clicked')}
-          className="col-start-3 font-bolt items-center justify-center w-57.5 h-13 text-base border border-gray-600 rounded-full  bg-black/20 backdrop-opacity-15 text-[#FDFDFD]"
+          className="col-span-full flex font-bolt items-center justify-center w-57.5 h-13 text-base border border-gray-600 rounded-full  bg-black/20 backdrop-opacity-15 text-[#FDFDFD]"
         >
           Load More
         </button>
