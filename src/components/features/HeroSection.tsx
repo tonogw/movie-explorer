@@ -24,7 +24,7 @@ export default function HeroSection() {
 
   //   RENDER
   return (
-    <section className="relative h-225">
+    <section className="relative  h-150 md:h-175 lg:h-225">
       <img
         src={getImageUrl(heroMovie.backdrop_path, IMAGE_SIZES.backdrop.original)}
         alt={heroMovie.title}
