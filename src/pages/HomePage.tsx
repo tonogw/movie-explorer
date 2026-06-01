@@ -5,16 +5,20 @@ import HeroSection from '@/components/features/HeroSection';
 import TrendingSection from '@/components/features/TrendingSection';
 import NewReleaseSection from '@/components/features/NewReleaseSection';
 
-export default function Homepage3() {
+import { useState } from 'react';
+// import { useCardWidth } from '@/hooks/useCardWidth';
+
+export default function Homepage() {
+  const [cardWidth, setCardWidth] = useState(0);
   return (
     <div>
       <Navbar />
 
       <HeroSection />
 
-      <TrendingSection />
+      <TrendingSection cardWidth={cardWidth} />
 
-      <NewReleaseSection />
+      <NewReleaseSection onWidthChange={setCardWidth} />
 
       <Footer />
     </div>
