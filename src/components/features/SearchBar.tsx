@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Search, X } from 'lucide-react';
+// import { useSearchMovies } from '../../hooks/';
 
 export default function SearchBar() {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  // const {data} = useSearchMovies(searchQuery);
   return (
     // DESKTOP
     <div className="hidden md:block ">
@@ -53,9 +55,9 @@ export default function SearchBar() {
             />
             {searchQuery && (
               <div className="absolute top-12 left-0 w-full bg-black rounded-lg">
-                {data?.results?.slice(0, 5).map((movie) => (
-                  <div key={movie.id}>{movie.title}</div>
-                ))}
+                {/* {data?.results?.slice(0, 5).map((data:null) => ( */}
+                {/* <div key={data.id}>{data.title}</div> */}
+                {/* ))} */}
               </div>
             )}
             <button onClick={() => setOpen(false)}>

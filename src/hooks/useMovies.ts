@@ -1,22 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { movieService } from '@/services/movieService';
 import type { MovieResponse } from '@/types/movie';
-// import type { Movie } from '@/types/movie';
-// import {movieService} from "../../src/services/movieService";
-// TODO: Create custom hooks using React Query
-// Reference: https://tanstack.com/query/latest/docs/framework/react/overview
 
 // Example: Hook to fetch popular movies
 export const usePopularMovies = () => {
-  // TODO: Implement useQuery hook
-  // Hint: Use movieService.getPopularMovies as queryFn
-  // ['movies', 'popular'],
   return useQuery({
     queryKey: ['popular-movies'],
-    // queryFn: () => {
-    //   // TODO: Call your movie service function
-    //   throw new Error('Not implemented');
-    // },
+
     queryFn: movieService.getPopularMovies,
   });
 };
@@ -28,8 +18,6 @@ export const useTrendingMovies = (timeWindow: 'day' | 'week') => {
     queryFn: () => movieService.trendingMovies(timeWindow),
   });
 };
-// TODO: Add more hooks for different endpoints
-// Examples: useMovieDetails, useSearchMovies, useNowPlayingMovies
 
 // Hook to fetch now playing movies
 export const useNowPlayingMovies = () => {
@@ -39,15 +27,6 @@ export const useNowPlayingMovies = () => {
     queryFn: movieService.getNowPlayingMovies,
   });
 };
-
-// Hook to fetch new release movies regions based country specific
-// export const useNewReleaseMovies = (region: string) => {
-//   return useQuery({
-//     queryKey: ['new-release', region],
-
-//     queryFn: () => movieService.newReleaseMovies(region),
-//   });
-// };
 
 // Hook to fetch movie credits
 export const useMovieCredits = (movieId: number) => {
@@ -91,3 +70,29 @@ export const useSearchMovies = (query: string) => {
     enabled: query.length > 0,
   });
 };
+
+// Hook to fetch new release movies regions based country specific
+// export const useNewReleaseMovies = (region: string) => {
+//   return useQuery({
+//     queryKey: ['new-release', region],
+
+//     queryFn: () => movieService.newReleaseMovies(region),
+//   });
+// };
+
+// TODO: Add more hooks for different endpoints
+// Examples: useMovieDetails, useSearchMovies, useNowPlayingMovies
+
+// TODO: Implement useQuery hook
+// Hint: Use movieService.getPopularMovies as queryFn
+// ['movies', 'popular'],
+
+// import type { Movie } from '@/types/movie';
+// import {movieService} from "../../src/services/movieService";
+// TODO: Create custom hooks using React Query
+// Reference: https://tanstack.com/query/latest/docs/framework/react/overview
+
+// queryFn: () => {
+//   // TODO: Call your movie service function
+//   throw new Error('Not implemented');
+// },

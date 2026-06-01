@@ -1,5 +1,3 @@
-import {poppins} from "next/font/google";
-
 @import 'tailwindcss';
 
 .poppins-thin {
