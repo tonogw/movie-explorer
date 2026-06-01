@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { Search, X } from 'lucide-react';
 
 export default function SearchBar() {
-  const [open, setOpen] = useState('false');
+  const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   return (
     // DESKTOP
     <div className="hidden md:block ">
       <Search size={32} className=" relative min-w-97.5 lg:max-w-360 px-2 lg:px-35" />
       <input
+        id="desktop-search"
+        name="desktop-search"
         type="text"
+        autoFocus
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Search Movie"
@@ -17,7 +20,7 @@ export default function SearchBar() {
       />
       // MOBILE
       <button
-        onClick={() => setOpen('true')}
+        onClick={() => setOpen(true)}
         className="
     md:hidden
     "
@@ -35,6 +38,8 @@ export default function SearchBar() {
         >
           <div className="flex gap-2">
             <input
+              id="mobile-search"
+              name="mobile-search"
               autoFocus
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -42,7 +47,7 @@ export default function SearchBar() {
               className="flex-1 h-12 rounded-lg px-4"
               type="text"
             />
-            <button onClick={() => setOpen('false')}>
+            <button onClick={() => setOpen(false)}>
               <X />
             </button>
           </div>

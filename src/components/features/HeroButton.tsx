@@ -21,7 +21,7 @@ export default function HeroButton({ movie }: HeroContentProps) {
       </button>
       <Link
         to={`/movie/${movie.id}`}
-        className="w-full md:w-57.5 h-12 flex items-center justify-center  text-center align-middle z-50 border border-gray-600 rounded-full ml-5 bg-black/20 backdrop-opacity-15"
+        className="w-full md:w-57.5 h-12 flex items-center justify-center  text-center align-middle z-50 border border-gray-600 rounded-full bg-black/20 backdrop-opacity-15"
       >
         See Detail
       </Link>
