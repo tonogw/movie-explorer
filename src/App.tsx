@@ -1,14 +1,15 @@
 import './index.css';
 import { Routes, Route } from 'react-router-dom';
 // import HomePage from '@/pages/HomePage';
-import MovieDetailPage from './pages/MovieDetailPage';
+// import MovieDetailPage from './pages/MovieDetailPage';
 import HomePage from './pages/HomePage';
-import { Button } from './components/ui/button';
+// import { Button } from './components/ui/button';
 // import HomePage2 from './pages/HomePage2';
 // import Homepage3 from './pages/HomePage3';
 // import HeroContent from './components/features/HeroContent';
 // import HeroSection from './components/features/HeroSection';
 // import MovieDetailPage from '@/pages/MovieDetailPage';
+import MobileLayout from './components/layout/MobileLayout';
 
 function App() {
   // TODO: Setup routing dengan React Router
@@ -21,7 +22,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       {/* <Route path="/" element={<HeroSection />} /> */}
-      <Route path="/movie/:movieId" element={<MovieDetailPage />} />
+      <Route path="/movie/:movieId" element={<MobileLayout />} />
     </Routes>
 
     // </div>
