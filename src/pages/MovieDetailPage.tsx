@@ -73,21 +73,24 @@ export default function MovieDetailPage() {
                   <Heart className="align-center justify-middle" />
                 </div>
                 {/* BLOK RATING, GENRE, AGE */}
-                <div className="flex text-base">
+                <div className="grid grid-cols-3 text-base">
                   {/* GET RATING */}
-                  <div className="border">
-                    <Star />
-                    <p>Rating {data?.vote_average}</p>
+                  <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center">
+                    <Star size={32} className="mb-2  fill-amber-400" />
+                    <p className="text-sm text-gray-400">Rating</p>
+                    <p> {data?.vote_average}</p>
                   </div>
                   {/* GET GENRE */}
-                  <div className="border">
-                    <Video />
-                    <p>Genre "{data?.genres?.map((genre) => genre.name).join(',')} </p>
+                  <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center">
+                    <Video size={32} className="mb-2" />
+                    <p className="text-sm text-gray-400">Genre </p>
+                    <p>{data?.genres?.map((genre) => genre.name).join(',')} </p>
                   </div>
                   {/* GET AGE LIMIT */}
-                  <div className="border">
-                    <BabyIcon />
-                    <p>Age Limit {data?.adult ? '18+' : 'PG-13'}</p>
+                  <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center">
+                    <BabyIcon size={32} className="mb-2" />
+                    <p className="text-sm text-gray-400">Age Limit </p>
+                    <p>{data?.adult ? '18+' : 'PG-13'}</p>
                   </div>
                 </div>
               </div>
