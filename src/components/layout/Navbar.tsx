@@ -1,6 +1,7 @@
 import { LucideTv } from 'lucide-react';
 import SearchBar from '../features/SearchBar';
 import MobileMenu from '../features/MobileMenu';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   //   const [searchQuery, setSearchQuery] = useState('');
@@ -16,7 +17,7 @@ export default function Navbar() {
         {/* MENU */}
 
         <div className="hidden  md:flex  gap-8 font-semibold">
-          <a href="#home">Home</a>
+          <Link to="/">Home</Link>
           <a href="#favorites">Favorites</a>
         </div>
         <div className="flex items-center gap-4">
