@@ -2,6 +2,16 @@ import { useQuery } from '@tanstack/react-query';
 import { movieService } from '@/services/movieService';
 import type { MovieResponse } from '@/types/movie';
 
+// Hook to fetch search movie
+export const useSearchMovies = (query: string) => {
+  // const [searchQuery, setSearhQuery] = useState('');
+  return useQuery({
+    queryKey: ['search-movies', query],
+    queryFn: () => movieService.searchMovies(query),
+    enabled: query.length > 0,
+  });
+};
+
 // Example: Hook to fetch popular movies
 export const usePopularMovies = () => {
   return useQuery({
@@ -58,16 +68,6 @@ export const useWatchTrailer = (movieId: number) => {
     queryFn: () => movieService.getMovieTrailer(movieId),
 
     enabled: !!movieId,
-  });
-};
-
-// Hook to fetch search movie
-export const useSearchMovies = (query: string) => {
-  // const [searchQuery, setSearhQuery] = useState('');
-  return useQuery({
-    queryKey: ['search-movies', query],
-    queryFn: () => movieService.searchMovies(query),
-    enabled: query.length > 0,
   });
 };
 

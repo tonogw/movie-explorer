@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 // import HomePage from '@/pages/HomePage';
 import MovieDetailPage from './pages/MovieDetailPage';
 import HomePage from './pages/HomePage';
+import { Button } from './components/ui/button';
 // import HomePage2 from './pages/HomePage2';
 // import Homepage3 from './pages/HomePage3';
 // import HeroContent from './components/features/HeroContent';
@@ -22,6 +23,7 @@ function App() {
       {/* <Route path="/" element={<HeroSection />} /> */}
       <Route path="/movie/:movieId" element={<MovieDetailPage />} />
     </Routes>
+
     // </div>
   );
 }

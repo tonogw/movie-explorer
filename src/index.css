@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@theme {
+  --default-font-family: 'Poppins', sans-serif;
+}
+
 .poppins-thin {
   font-family: 'Poppins', sans-serif;
   font-weight: 100;
