@@ -29,19 +29,19 @@ export default function Navbar() {
       
       `}
     >
-      <div className="mx-auto max-w-[359px]  md:max-w-160 md:px-20 lg:max-w-360 lg:px-35 h-20 lg:h-22.5 flex items-center justify-between">
+      <div className="mx-auto max-w-[359px]  md:max-w-160 md:px-4 lg:max-w-360 lg:px-35 h-20 lg:h-22.5 flex items-center justify-between">
         {/* LOGO  */}
-        <div className="flex items-center gap-2">
+        <div className="lg:max-w-102.5 flex items-center gap-2">
           <LucideTv size={32} className="fill-yellow-400" />
-          <span className="font-bold text-2xl lg:text-4xl">Movie</span>
-        </div>
-        {/* MENU */}
+          <span className="font-bold text-2xl lg:text-4xl mr-12">Movie</span>
+          {/* MENU */}
 
-        <div className="hidden  md:flex  gap-8 font-semibold">
-          <Link to="/">Home</Link>
-          <a href="#favorites">Favorites</a>
+          <div className="hidden  md:flex  gap-12 font-semibold">
+            <Link to="/">Home</Link>
+            <a href="#favorites">Favorites</a>
+          </div>
         </div>
-        <div className="flex items-left gap-4">
+        <div className="flex items-center gap-4">
           <SearchBar />
           <MobileMenu />
         </div>
