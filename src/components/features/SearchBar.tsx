@@ -50,7 +50,7 @@ export default function SearchBar() {
         <div
           className="
                 fixed inset-0
-                z-999
+                z-50
                 bg-black
                 p-4
                 "

@@ -27,6 +27,9 @@ type DesktopLayoutProps = {
 export default function DesktopLayout({ data, credits }: DesktopLayoutProps) {
   return (
     <div className="bg-black text-white  border ">
+      {/* NAVBAR */}
+
+      <Navbar />
       <div className="relative">
         {/* BACKDROP */}
         <img
@@ -40,14 +43,10 @@ export default function DesktopLayout({ data, credits }: DesktopLayoutProps) {
           from-black via-black/10 to bg-transparent
           "
         />
-        {/* NAVBAR */}
-        <div className="absolute top-0 left-0 w-full z-30">
-          <Navbar />
-        </div>
       </div>
       {/* // CONTAINER */}
       {/* HEADER */}
-      <div className="relative z-40 -mt-64 mx-auto max-w-[1160px]">
+      <div className="relative  -mt-64 mx-auto max-w-[1160px]">
         {/* MOVIE POSTER */}
         <div className="flex gap-8">
           {/* FETCH POSTER */}

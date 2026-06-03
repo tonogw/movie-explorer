@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <nav
       className={`
-      fixed  top-0 left-0 w-full z-[9999]
+      fixed  top-0 left-0 w-full z-[99999]
       transition-all duration-300
       text-[#FDFDFD]
       ${scrolled ? 'bg-black/70 backdrop-blur-md' : 'bg-transparent'}
@@ -41,7 +41,7 @@ export default function Navbar() {
           <Link to="/">Home</Link>
           <a href="#favorites">Favorites</a>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-left gap-4">
           <SearchBar />
           <MobileMenu />
         </div>
