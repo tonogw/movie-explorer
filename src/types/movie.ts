@@ -45,6 +45,13 @@ export interface Cast {
   profile_path: string | null;
 }
 
+export interface Crew {
+  id: number;
+  name: string;
+  job: string;
+  department: string;
+}
+
 export interface CreditResponse {
   cast: Cast[];
 }

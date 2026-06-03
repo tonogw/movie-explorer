@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { useSearchMovies } from '@/hooks/useMovies';
 // import { useSearchMovies } from '../../hooks/';
+import { Input } from '@/components/ui/input';
 
 export default function SearchBar() {
   const [open, setOpen] = useState(false);
@@ -12,7 +13,18 @@ export default function SearchBar() {
     <div className="hidden md:block ">
       <div className="relative">
         <Search size={24} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-        <input
+
+        <Input
+          id="search-movie"
+          name="search-movie"
+          type="text"
+          placeholder="Search Movie ..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="pl-10"
+        />
+
+        {/* <input
           id="desktop-search"
           name="desktop-search"
           type="text"
@@ -21,7 +33,7 @@ export default function SearchBar() {
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search Movie"
           className=" pl-10 min-w-60.75 md:max-w-60.75 border border-gray-600 rounded-lg h-10 bg-gray-700 text-white placeholder:text-gray-400 "
-        />
+        /> */}
       </div>
       <div />
 

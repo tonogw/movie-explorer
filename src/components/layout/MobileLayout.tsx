@@ -8,7 +8,7 @@ import { IMAGE_SIZES } from '@/lib/constants';
 // import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Star, Video, Heart, BabyIcon, Calendar } from 'lucide-react';
-import MovieCard from '@/components/features/MovieCard';
+// import MovieCard from '@/components/features/MovieCard';
 // import { Video } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
 // import { getImageUrl } from '@/lib/utils';
