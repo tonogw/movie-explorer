@@ -24,7 +24,7 @@ export default function MovieDetailPage() {
   }
 
   return (
-    <div className="bg-black text-[#FDFDFD] px-4">
+    <div className="md:hidden bg-black text-[#FDFDFD] px-4">
       <div className="bg-black text-[#FDFDFD] ">
         <div className="relative bg-red-400 z-20 ">
           {/* BACKDROP */}
@@ -34,11 +34,11 @@ export default function MovieDetailPage() {
           />
           {/* GRADIENT OVERLAY */}
 
-          {/* <div
+          <div
             className="absolute inset-0 bg-linear-to-t
-          from-black via-black/60 to bg-transparent
+          from-black via-black/10 to bg-transparent
           "
-          /> */}
+          />
 
           {/* NAVBAR */}
           <div className="absolute top-0 left-0 w-full z-30">
@@ -47,112 +47,116 @@ export default function MovieDetailPage() {
         </div>
       </div>
 
-      <div className="absolute w-full left-0 right0 top-50 z-40 px-4 lg:px-35">
+      {/* CONTAINER */}
+      <div className="-mt20 relative z-40">
         {/* BLOK POSTER */}
-        <div className="flex gap-8 border border-red-400">
+        <div className=" flex gap-2  items-start border border-red-400">
           {/* FETCH POSTER */}
           <img
             src={getImageUrl(data?.poster_path, IMAGE_SIZES.poster.large)}
             alt={data?.title}
-            className="w-29 lg:w-65 z-60  rounded-xl border-4 border-gray-600"
+            className="w-28  z-60  rounded-xl border-4 border-gray-600 shadow-lg"
           />
           {/* BLOK DETAIL */}
-          <div className="w-full text-left border border-yellow-400">
-            {/* BLOK TITLE, RATING, GENRE AND AGE */}
-            <div className="mx-4 text-[40px] font-bold border">
-              {/* GET TITLE */}
-              <h1 className="text-xl lg:text-4xl font-bold">{data?.title}</h1>
-              {/* GET RELEASE DATE */}
-              <div className="flex">
-                <Calendar size={32} />
-                <p className="text-xl">{data?.release_date}</p>
-              </div>
+          {/* <div className=" mx-auto max-w-[359px]  text-left border border-yellow-400"> */}
+          {/* BLOK TITLE, RATING, GENRE AND AGE */}
+          <div className="flex-1 pb-4 max-w-[359px] border">
+            {/* GET TITLE */}
+            <h1 className="pt-2 text-xl font-bold leading-tight">{data?.title}</h1>
+            {/* GET RELEASE DATE */}
+            <div className="flex items-center mt-2 gap-2 text-sm text-[#A4A7AE]">
+              <Calendar size={16} />
+              <span>{data?.release_date}</span>
             </div>
           </div>
+          {/* </div> */}
         </div>
       </div>
 
       {/* POSTER AND INFO */}
 
       {/* BLOK INTERACTIVE */}
-      <div className="">
-        <div className="relative top-50 flex border gap-2">
+      <div className="mx-auto max-w-[359px]">
+        <div className="mt-6 flex border gap-4 items-center">
           {/* FETCH TRAILER */}
-          <Button className=" border mr-2 w-full bg-[#961200] text-white rounded-full">
+          <Button className=" border  w-full bg-[#961200] text-white rounded-full">
             Watch Trailer
           </Button>
           {/* FAVORITES */}
-          <Heart size={32} className="mr-4 align-center justify-middle" />
+          <span>
+            <Heart size={24} className="mr-2.5" />
+          </span>
         </div>
         {/* BLOK RATING, GENRE, AGE */}
-        <div className="absolute top-120 w-full left-0 grid grid-cols-3 gap-2 text-base px-4 ">
+        <div className="grid grid-cols-3 gap-2 mt-6 text-base  ">
           {/* GET RATING */}
-          <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center">
-            <Star size={32} className="mb-2  fill-amber-400" />
+          <div
+            className="
+           flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center hover:bg-red-500 z-30"
+          >
+            <Star
+              size={32}
+              className="mb-2  fill-amber-400  hover:bg-gray-600 hover:fill-red-500"
+            />
             <p className="text-sm text-gray-400">Rating</p>
             <p> {Number(data?.vote_average?.toFixed(1))} /10</p>
           </div>
-          {/* GET GENRE */}
-          <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center">
+          {/* BLOK GENRE */}
+          <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center z-30">
             <Video size={32} className="mb-2" />
             <p className="text-sm text-gray-400">Genre </p>
-            <p>{data?.genres?.map((genre) => genre.name).join(',')} </p>
+            {/* GET GENRE !FIRST */}
+            <p>{data?.genres?.map((genre) => genre.name).join(',')}</p>
           </div>
           {/* GET AGE LIMIT */}
-          <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center">
+          <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center z-30">
             <BabyIcon size={32} className="mb-2" />
             <p className="text-sm text-gray-400">Age Limit </p>
             <p>{data?.adult ? '18+' : 'PG-13'}</p>
           </div>
         </div>
       </div>
-      {/* </div> */}
-
-      {/* </div> */}
-      {/* </div> */}
-      {/* </div> */}
-      {/* </div> */}
 
       <div
         className="
-      pt-20
+      mt-6
       "
       >
         {/* BLOK OVERVIEW */}
-        <div className="pt-21 lg:px-35 border">
+        <div className="mx-auto max-w-[359px]  lg:px-35 border">
           {/* OVERVIEW */}
-          <h2 className="font-bold text-5xl ">Overview</h2>
+          <h2 className="font-bold text-xl ">Overview</h2>
           {/* GET OVERVIEW DETAIL */}
           <p>{data?.overview} </p>
         </div>
       </div>
 
       {/* BLOK CAST & CREW */}
-      <div className="w-full mt-12 border pb-36.5">
-        <div className="lg:px-35">
+      <div className="mx-auto max-w-[359px] mt-6 border pb-10">
+        <div className="">
           {/* CAST & CREW */}
-          <h2 className="py-4 font-bold text-5xl">Cast & Crew</h2>
+          <h2 className=" py-4 font-bold text-xl">Cast & Crew</h2>
           {/* BLOK GRID */}
-          <div className="border border-amber-400 px-4 grid grid-cols-1 lg:grid-cols-3 justify-between">
+          <div className="border border-amber-400 grid grid-cols-1">
             {/* FETCH DETAIL CREDITS */}
             {credits?.cast.slice(0, 10).map((cast) => (
               // GET MOVIE ID
               <div
-                className="border border-red-500 max-w-90  grid grid-cols-3  justify-between py-5 pr-5"
+                className="border border-red-500 max-w-90  grid grid-cols-3   py-5 pr-5"
                 key={cast.id}
               >
                 {/* GET CAST/CREW IMAGE */}
                 <img
                   src={getImageUrl(cast.profile_path, IMAGE_SIZES.profile.medium)}
                   alt={cast.name}
-                  className=""
+                  className="w-13.75 h-21"
                 />
                 {/* BLOK PROFILE */}
                 <div className="col col-span-2 py-5 px-2.5">
                   {/* GET PERSON NAME */}
-                  <h3 className="h-7.5 text-base font-bold ">{cast.name}</h3>
+                  <h3 className="h-7.5 text-sm font-bold ">{cast.name}</h3>
                   {/* GET CHARACTER NAME */}
-                  <p className="h-7.5 text-base text-[#A4A7AE]"> {cast.character}</p>
+                  <p className="h-7.5 text-sm text-[#A4A7AE]"> {cast.character}</p>
                 </div>
               </div>
             ))}

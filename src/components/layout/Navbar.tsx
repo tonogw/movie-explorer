@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="absolute top-0 left-0 w-full z-50  text-[#FDFDFD]">
-      <div className="max-w-360 mx-auto px-4 lg:px-35 h-20 lg:h-22.5 flex items-center justify-between">
+      <div className="mx-auto max-w-[359px]  md:max-w-160 md:px-20 lg:max-w-360 lg:px-35 h-20 lg:h-22.5 flex items-center justify-between">
         {/* LOGO  */}
         <div className="flex items-center gap-2">
           <LucideTv size={32} className="fill-yellow-400" />
