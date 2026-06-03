@@ -13,7 +13,7 @@ import MovieCard from '@/components/features/MovieCard';
 import Footer from '@/components/layout/Footer';
 // import { getImageUrl } from '@/lib/utils';
 
-export default function MovieDetailPage() {
+export default function MoobileLayout() {
   const { movieId } = useParams();
 
   const { data, isLoading } = useMovieDetail(Number(movieId));
