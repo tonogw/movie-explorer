@@ -4,12 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 // import MovieDetailPage from './pages/MovieDetailPage';
 import HomePage from './pages/HomePage';
 // import { Button } from './components/ui/button';
-// import HomePage2 from './pages/HomePage2';
-// import Homepage3 from './pages/HomePage3';
 // import HeroContent from './components/features/HeroContent';
 // import HeroSection from './components/features/HeroSection';
 // import MovieDetailPage from '@/pages/MovieDetailPage';
-import MobileLayout from './components/layout/MobileLayout';
+// import MobileLayout from './components/layout/MobileLayout';
+import MovieDetailPage from './pages/MovieDetailPage';
 
 function App() {
   // TODO: Setup routing dengan React Router
@@ -22,7 +21,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       {/* <Route path="/" element={<HeroSection />} /> */}
-      <Route path="/movie/:movieId" element={<MobileLayout />} />
+      <Route path="/movie/:movieId" element={<MovieDetailPage />} />
     </Routes>
 
     // </div>

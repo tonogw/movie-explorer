@@ -97,21 +97,24 @@ export default function MovieDetailPage() {
                 size={32}
                 className="mb-2  fill-amber-400  hover:bg-gray-600 hover:fill-red-500"
               />
-              <p className="text-sm text-gray-400">Rating</p>
-              <p> {Number(data?.vote_average?.toFixed(1))} /10</p>
+              <p className="text-xs text-gray-400">Rating</p>
+              <p className="text-lg font-semibold"> {Number(data?.vote_average?.toFixed(1))} /10</p>
             </div>
             {/* BLOK GENRE */}
             <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center z-30">
               <Video size={32} className="mb-2" />
-              <p className="text-sm text-gray-400">Genre </p>
+              <p className="text-xs text-gray-400">Genre </p>
               {/* GET GENRE !FIRST */}
-              <p>{data?.genres?.map((genre) => genre.name).join(',')}</p>
+              <p className="text-lg font-semibold">
+                {/* {data?.genres?.map((genre) => genre.name).join(',')} */}
+                {data?.genres?.[0]?.name}
+              </p>
             </div>
             {/* GET AGE LIMIT */}
             <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center z-30">
               <BabyIcon size={32} className="mb-2" />
-              <p className="text-sm text-gray-400">Age Limit </p>
-              <p>{data?.adult ? '18+' : 'PG-13'}</p>
+              <p className="text-xs text-gray-400">Age Limit </p>
+              <p className="text-lg font-semibold">{data?.adult ? '18+' : 'PG-13'}</p>
             </div>
           </div>
         </div>
