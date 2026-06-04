@@ -2,7 +2,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 // import type { Movie } from '@/types/movie';
 import { useMovieStore } from '@/store/movieStore';
-import MovieCard from '@/components/features/MovieCard';
+// import MovieCard from '@/components/features/MovieCard';
 import { Clapperboard } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FavMovieCard from '@/components/features/FavMovieCard';
@@ -18,7 +18,7 @@ export default function FavoritesPage() {
     <div className="min-h-screen bg-black text-white">
       <Navbar />
       <main id="favorites" className="max-w-[1160px] mx-auto px-4 pt-24">
-        <h1 className="text-3xl font-bold mb-8">Favorites Movie</h1>
+        <h1 className="text-3xl font-bold mb-8">Favorites</h1>
         {favorites.length === 0 ? (
           <div className="flex items-center justify-center min-h-70vh">
             <div className="w-[300px] h-[358px] flex flex-col items-center justify-center text-center ">
