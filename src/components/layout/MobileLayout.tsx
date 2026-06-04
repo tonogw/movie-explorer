@@ -8,10 +8,11 @@ import type { DetailResponse, CreditResponse, VideoResult } from '@/types/movie'
 import { IMAGE_SIZES } from '@/lib/constants';
 // import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Star, Video as VideoIcon, Heart, BabyIcon, Calendar } from 'lucide-react';
+import { Star, Video as VideoIcon, BabyIcon, Calendar } from 'lucide-react';
 // import MovieCard from '@/components/features/MovieCard';
 // import { Video } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
+// import FavButton from '../ui/FavButton';
 // import { getImageUrl } from '@/lib/utils';
 
 type MobileLayoutProps = {
@@ -98,9 +99,10 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
             </Button>
             {/* FAVORITES */}
             <span>
-              <Button variant="favorite" size="icon">
-                <Heart size={24} className="mr-2.5" />
-              </Button>
+              {/* <Button variant="favorite" size="icon" onClick={() => toggleFavorite(data)}>
+                <Heart className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />
+              </Button> */}
+              {/* <FavButton movie={data}/> */}
             </span>
           </div>
           {/* BLOK RATING, GENRE, AGE */}

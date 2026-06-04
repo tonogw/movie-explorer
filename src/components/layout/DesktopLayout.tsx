@@ -5,7 +5,8 @@ import Footer from '@/components/layout/Footer';
 import { getImageUrl } from '@/lib/utils';
 import { IMAGE_SIZES } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
-import { Star, Heart, BabyIcon, Calendar, Video as VideoIcon } from 'lucide-react';
+import { Star, BabyIcon, Calendar, Video as VideoIcon } from 'lucide-react';
+import FavButton from '../ui/FavButton';
 
 // backdrop-poster-title-releaseDate-overview-button-rating-genre-age|
 // div className="mx-auto max-w-[1160px] px-8"
@@ -83,7 +84,12 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
                 Watch Trailer
               </Button>
               {/* FAVORITES */}
-              <Heart size={24} className="align-center justify-middle" />
+              {/* <Heart size={24} className="align-center justify-middle" /> */}
+
+              {/* <Button variant="favorite" size="icon" onClick={() => toggleFavorite(data)}>
+                <Heart className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />
+              </Button> */}
+              {/* <FavButton movie={data} /> */}
             </div>
 
             {/* BLOK RATING, GENRE, AGE */}
