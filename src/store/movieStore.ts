@@ -25,9 +25,15 @@ export const useMovieStore = create<MovieStore>()(
       favorites: [],
 
       addToFavorite: (movie) =>
-        set((state) => ({
-          favorites: [...state.favorites, movie],
-        })),
+        set((state) => {
+          const exists = state.favorites.some((item) => item.id === movie.id);
+          if (exists) {
+            return state;
+          }
+          return {
+            favorites: [...state.favorites, movie],
+          };
+        }),
 
       removeFromFavorite: (movieId) =>
         set((state) => ({

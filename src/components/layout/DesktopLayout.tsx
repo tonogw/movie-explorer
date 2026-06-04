@@ -77,6 +77,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
                 onClick={() => {
                   if (trailer) {
                     window.open(`https://youtube.com/watch?v=${trailer.key}`, '_blank');
+                    // window.open(`https://youtube.com/${trailer.key}?autoplay=1&rel=0`, '_blank');
                   }
                 }}
                 className="w-[220px] border bg-[#961200] text-white rounded-full"
