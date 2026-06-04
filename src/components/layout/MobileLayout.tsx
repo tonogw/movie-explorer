@@ -1,27 +1,34 @@
 import Navbar from '@/components/layout/Navbar';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { getImageUrl } from '@/lib/utils';
+import type { DetailResponse, CreditResponse, VideoResult } from '@/types/movie';
 // import { useMovieDetail } from '@/hooks/useMovies';
 // import {getMovieDetails} from "../services/movieService";
-import { useMovieCredits, useMovieDetail } from '@/hooks/useMovies';
+// import { useMovieCredits, useMovieDetail } from '@/hooks/useMovies';
 import { IMAGE_SIZES } from '@/lib/constants';
 // import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Star, Video, Heart, BabyIcon, Calendar } from 'lucide-react';
+import { Star, Video as VideoIcon, Heart, BabyIcon, Calendar } from 'lucide-react';
 // import MovieCard from '@/components/features/MovieCard';
 // import { Video } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
 // import { getImageUrl } from '@/lib/utils';
 
-export default function MoobileLayout() {
-  const { movieId } = useParams();
+type MobileLayoutProps = {
+  data: DetailResponse;
+  credits: CreditResponse;
+  trailer?: VideoResult;
+};
 
-  const { data, isLoading } = useMovieDetail(Number(movieId));
-  const { data: credits } = useMovieCredits(Number(movieId));
+export default function MobileLayout({ data, credits, trailer }: MobileLayoutProps) {
+  // const { movieId } = useParams();
 
-  if (isLoading) {
-    return <div>Loading movie details ... </div>;
-  }
+  // const { data, isLoading } = useMovieDetail(Number(movieId));
+  // const { data: credits } = useMovieCredits(Number(movieId));
+
+  // if (isLoading) {
+  //   return <div>Loading movie details ... </div>;
+  // }
 
   return (
     <div className="md:hidden bg-black text-[#FDFDFD] px-4">
@@ -54,8 +61,8 @@ export default function MoobileLayout() {
           <div className=" flex gap-2  items-start border border-red-400">
             {/* FETCH POSTER */}
             <img
-              src={getImageUrl(data?.poster_path, IMAGE_SIZES.poster.large)}
-              alt={data?.title}
+              src={getImageUrl(data.poster_path, IMAGE_SIZES.poster.large)}
+              alt={data.title}
               className="w-28    rounded-xl border-4 border-gray-600 shadow-lg shrink-0"
             />
             {/* BLOK DETAIL */}
@@ -63,11 +70,11 @@ export default function MoobileLayout() {
             {/* BLOK TITLE, RATING, GENRE AND AGE */}
             <div className="flex-1 pb-4 max-w-[359px] border">
               {/* GET TITLE */}
-              <h1 className="pt-2 text-xl font-bold leading-tight">{data?.title}</h1>
+              <h1 className="pt-2 text-xl font-bold leading-tight">{data.title}</h1>
               {/* GET RELEASE DATE */}
               <div className="flex items-center mt-2 gap-2 text-sm text-[#A4A7AE]">
                 <Calendar size={16} />
-                <span>{data?.release_date}</span>
+                <span>{data.release_date}</span>
               </div>
             </div>
             {/* </div> */}
@@ -78,7 +85,15 @@ export default function MoobileLayout() {
         <div className="mx-auto max-w-[359px]">
           <div className="mt-6 flex border gap-4 items-center">
             {/* FETCH TRAILER */}
-            <Button className=" border  w-full bg-[#961200] text-white rounded-full">
+            <Button
+              disabled={!trailer}
+              onClick={() => {
+                if (trailer) {
+                  window.open(`https://youtube.com/watch?v=${trailer.key}`, '_blank');
+                }
+              }}
+              className=" border  w-full bg-[#961200] text-white rounded-full"
+            >
               Watch Trailer
             </Button>
             {/* FAVORITES */}
@@ -102,7 +117,7 @@ export default function MoobileLayout() {
             </div>
             {/* BLOK GENRE */}
             <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center z-30">
-              <Video size={32} className="mb-2" />
+              <VideoIcon size={32} className="mb-2" />
               <p className="text-xs text-gray-400">Genre </p>
               {/* GET GENRE !FIRST */}
               <p className="text-lg font-semibold">

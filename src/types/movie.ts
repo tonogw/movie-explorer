@@ -113,16 +113,28 @@ export interface DetailResponse {
   vote_count: number;
 }
 
-// export interface WatchTrailer {
-//   id: string;
-//   key: string;
-//   name: string;
-//   site: string;
-//   type: string;
-// }
+export interface Video {
+  id: string;
+  key: string;
+  name: string;
+  site: string;
+  type: string;
+}
 
-// export interface TrailerResponse {
-//   id: number;
-//   results: WatchTrailer[];
-// }
+export interface VideoResult {
+  id: string;
+  key: string;
+  name: string;
+  site: string;
+  type: string;
+}
+
+export interface VideoResponse {
+  results: VideoResult[];
+}
+
+export interface TrailerResponse {
+  id: number;
+  results: Video[];
+}
 // TODO: Add more types as needed (Genre, Video, etc.)
