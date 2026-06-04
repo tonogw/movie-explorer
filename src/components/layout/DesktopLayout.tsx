@@ -60,7 +60,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
       {/* HEADER */}
       <div className="relative  -mt-64 mx-auto max-w-[1160px]">
         {/* MOVIE POSTER */}
-        <div className="flex gap-8">
+        <div className="flex gap-6">
           {/* FETCH POSTER */}
           <img
             src={getImageUrl(data.poster_path, IMAGE_SIZES.poster.large)}
@@ -154,7 +154,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
                 <img
                   src={getImageUrl(cast.profile_path, IMAGE_SIZES.profile.medium)}
                   alt={cast.name}
-                  className="w-13.75 h-21"
+                  className="w-13.75 lg:w-[69px] h-21 lg:h-[104px]"
                 />
                 {/* BLOK PROFILE */}
                 <div className="col col-span-2 py-5 ">

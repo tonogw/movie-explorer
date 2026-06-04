@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 // import HeroSection from './components/features/HeroSection';
 import MovieDetailPage from '@/pages/MovieDetailPage';
 import FavoritesPage from './pages/FavoritesPage';
+import SearchPage from './pages/SearchPage';
 // import MobileLayout from './components/layout/MobileLayout';
 // import MovieDetailPage from './pages/MovieDetailPage';
 // import DesktopLayout from './components/layout/DesktopLayout';
@@ -23,6 +24,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
+      <Route path="/search-page" element={<SearchPage />} />
       {/* <Route path="/" element={<HeroSection />} /> */}
       <Route path="/movie/:movieId" element={<MovieDetailPage />} />
       {/* <Route path="/movie/:movieId" element={<MobileLayout />} /> */}
