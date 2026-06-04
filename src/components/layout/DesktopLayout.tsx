@@ -6,8 +6,8 @@ import { getImageUrl } from '@/lib/utils';
 import { IMAGE_SIZES } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { Star, BabyIcon, Calendar, Video as VideoIcon } from 'lucide-react';
-import FavButton from '../ui/FavButton';
-
+import FavButton from '@/components/ui/FavButton';
+// import type { Movie, DetailResponse } from '@/types/movie';
 // backdrop-poster-title-releaseDate-overview-button-rating-genre-age|
 // div className="mx-auto max-w-[1160px] px-8"
 // HEADER: className:"flex gap-8"
@@ -25,6 +25,12 @@ type DesktopLayoutProps = {
   credits: CreditResponse;
   trailer?: VideoResult;
 };
+
+// type FavoriteMovie = Movie | DetailResponse;
+
+// type FaveButtonProps = {
+//   movie: Movie | FavoriteMovie;
+// };
 
 export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutProps) {
   //   const trailer = trailerData?.results?.find(
@@ -65,6 +71,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
           <div className="flex-1">
             {/* FETCH TITLE */}
             <h1 className="text-[40px]">{data.title}</h1>
+            <FavButton movie={data} />
             <div className="flex gap-2">
               <Calendar size={32} />
               <span>{data.release_date}</span>

@@ -25,7 +25,7 @@ export default function NewReleaseSection({ onWidthChange }: NewReleaseSectionPr
       if (firstCardRef.current) {
         const cardWidth = firstCardRef.current.getBoundingClientRect().width;
 
-        console.log('column width=', cardWidth);
+        // console.log('column width=', cardWidth);
         onWidthChange(cardWidth);
       }
     };

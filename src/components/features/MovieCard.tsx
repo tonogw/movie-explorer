@@ -5,47 +5,52 @@ import { getImageUrl } from '@/lib/utils';
 import { IMAGE_SIZES } from '@/lib/constants';
 
 import type { MovieCardProps } from '../../types/movie';
+// import FavButton from '@/components/ui/FavButton';
 
 export default function MovieCard({ movie }: MovieCardProps) {
   return (
-    <Link to={`/movie/${movie.id}`}>
-      <img
-        src={getImageUrl(movie.poster_path, IMAGE_SIZES.poster.large)}
-        alt={movie.title}
-        className="
-            rounded-xl"
-      />
+    <div className="relative">
+      {/* <FavButton movie={movie} /> */}
 
-      <div
-        className="
-            mt-4
-            "
-      >
-        <h3
+      <Link to={`/movie/${movie.id}`}>
+        <img
+          src={getImageUrl(movie.poster_path, IMAGE_SIZES.poster.large)}
+          alt={movie.title}
           className="
-                font-semibold
-                "
-        >
-          {movie.title}
-        </h3>
+        rounded-xl"
+        />
 
-        <div className="flex items-center gap-2">
-          <Star
-            size={16}
+        <div
+          className="
+        mt-4
+        "
+        >
+          <h3
             className="
-                fill-yellow-400
-                text-yellow-400
-                "
-          />
-          <span
-            className="
-                text-yellow-400 text-base
-                "
+          font-semibold
+          "
           >
-            {movie.vote_average.toFixed(1)}
-          </span>
+            {movie.title}
+          </h3>
+
+          <div className="flex items-center gap-2">
+            <Star
+              size={16}
+              className="
+            fill-yellow-400
+            text-yellow-400
+            "
+            />
+            <span
+              className="
+            text-yellow-400 text-base
+            "
+            >
+              {movie.vote_average.toFixed(1)}
+            </span>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

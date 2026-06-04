@@ -1,9 +1,10 @@
 import { useMovieStore } from '@/store/movieStore';
-import { Button } from './button';
-import type { Movie } from '@/types/movie';
+import { Button } from '@/components/ui/button';
+import type { Movie, DetailResponse } from '@/types/movie';
+import { Heart } from 'lucide-react';
 
 type FavButtonProps = {
-  movie: Movie;
+  movie: Movie | DetailResponse;
 };
 
 export default function FavButton({ movie }: FavButtonProps) {
@@ -12,8 +13,16 @@ export default function FavButton({ movie }: FavButtonProps) {
   const isFavorite = useMovieStore((state) => state.isFavorite(movie.id));
 
   return (
-    <Button variant="favorite" size="icon" onClick={() => toggleFavorite(movie)}>
-      <Heart clasName={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />
+    <Button
+      variant="favorite"
+      size="icon"
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleFavorite(movie);
+      }}
+    >
+      <Heart className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />
     </Button>
   );
 }

@@ -38,7 +38,8 @@ export default function Navbar() {
 
           <div className="hidden  md:flex  gap-12 font-semibold">
             <Link to="/">Home</Link>
-            <a href="#favorites">Favorites</a>
+            <Link to="/favorites">Favorites</Link>
+            {/* <a href="#favorites">Favorites</a> */}
           </div>
         </div>
         <div className="flex items-center gap-4">
