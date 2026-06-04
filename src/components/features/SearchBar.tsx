@@ -3,11 +3,20 @@ import { Search, X } from 'lucide-react';
 import { useSearchMovies } from '@/hooks/useMovies';
 // import { useSearchMovies } from '../../hooks/';
 import { Input } from '@/components/ui/input';
+import { useNavigate } from 'react-router-dom';
 
 export default function SearchBar() {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { data } = useSearchMovies(searchQuery);
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (!searchQuery.trim()) return;
+
+    navigate(`/search-page?q=${searchQuery}`);
+  };
+
   return (
     // DESKTOP
     <div className="hidden md:block ">
@@ -21,6 +30,11 @@ export default function SearchBar() {
           placeholder="Search Movie ..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch();
+            }
+          }}
           className="pl-10"
         />
 
