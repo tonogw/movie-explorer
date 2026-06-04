@@ -36,8 +36,8 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
         <div className="relative bg-red-400 z-20 ">
           {/* BACKDROP */}
           <img
-            src={getImageUrl(data?.backdrop_path, IMAGE_SIZES.backdrop.original)}
-            alt={data?.title}
+            src={getImageUrl(data.backdrop_path, IMAGE_SIZES.backdrop.original)}
+            alt={data.title}
           />
           {/* GRADIENT OVERLAY */}
 
@@ -98,7 +98,9 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
             </Button>
             {/* FAVORITES */}
             <span>
-              <Heart size={24} className="mr-2.5" />
+              <Button variant="favorite" size="icon">
+                <Heart size={24} className="mr-2.5" />
+              </Button>
             </span>
           </div>
           {/* BLOK RATING, GENRE, AGE */}
@@ -113,7 +115,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
                 className="mb-2  fill-amber-400  hover:bg-gray-600 hover:fill-red-500"
               />
               <p className="text-xs text-gray-400">Rating</p>
-              <p className="text-lg font-semibold"> {Number(data?.vote_average?.toFixed(1))} /10</p>
+              <p className="text-lg font-semibold"> {Number(data.vote_average?.toFixed(1))} /10</p>
             </div>
             {/* BLOK GENRE */}
             <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center z-30">
@@ -122,14 +124,14 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
               {/* GET GENRE !FIRST */}
               <p className="text-lg font-semibold">
                 {/* {data?.genres?.map((genre) => genre.name).join(',')} */}
-                {data?.genres?.[0]?.name}
+                {data.genres?.[0]?.name}
               </p>
             </div>
             {/* GET AGE LIMIT */}
             <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center z-30">
               <BabyIcon size={32} className="mb-2" />
               <p className="text-xs text-gray-400">Age Limit </p>
-              <p className="text-lg font-semibold">{data?.adult ? '18+' : 'PG-13'}</p>
+              <p className="text-lg font-semibold">{data.adult ? '18+' : 'PG-13'}</p>
             </div>
           </div>
         </div>
@@ -144,7 +146,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
             {/* OVERVIEW */}
             <h2 className="font-bold text-xl ">Overview</h2>
             {/* GET OVERVIEW DETAIL */}
-            <p>{data?.overview} </p>
+            <p>{data.overview} </p>
           </div>
         </div>
 
@@ -156,7 +158,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
             {/* BLOK GRID */}
             <div className="border border-amber-400 grid grid-cols-1">
               {/* FETCH DETAIL CREDITS */}
-              {credits?.cast.slice(0, 10).map((cast) => (
+              {credits.cast.slice(0, 10).map((cast) => (
                 // GET MOVIE ID
                 <div
                   className="border border-red-500 max-w-90  grid grid-cols-3   py-5 pr-5"
