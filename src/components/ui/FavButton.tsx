@@ -22,7 +22,7 @@ export default function FavButton({ movie }: FavButtonProps) {
         toggleFavorite(movie);
       }}
     >
-      <Heart className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />
+      <Heart size={32} className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />
     </Button>
   );
 }

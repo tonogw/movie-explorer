@@ -68,10 +68,12 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
             className="w-65 h-91    rounded-xl border-4 border-gray-600 shadow-lg shrink-0"
           />
           {/* BLOK TITLE */}
-          <div className="flex-1">
+          <div className="flex-1 items-center justify-between">
             {/* FETCH TITLE */}
-            <h1 className="text-[40px]">{data.title}</h1>
-            <FavButton movie={data} />
+            <div className="flex justify-between items-center gap-4">
+              <h1 className="text-[40px] ">{data.title}</h1>
+              <FavButton movie={data} />
+            </div>
             <div className="flex gap-2">
               <Calendar size={32} />
               <span>{data.release_date}</span>
