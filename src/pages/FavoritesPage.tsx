@@ -5,6 +5,7 @@ import { useMovieStore } from '@/store/movieStore';
 import MovieCard from '@/components/features/MovieCard';
 import { Clapperboard } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import FavMovieCard from '@/components/features/FavMovieCard';
 
 //  interface FavoritesPageProps {
 //     movie: Movie;
@@ -39,7 +40,7 @@ export default function FavoritesPage() {
         ) : (
           <div className="grid grid-cols-1 ">
             {favorites.map((movie) => (
-              <MovieCard movie={movie} key={movie.id} />
+              <FavMovieCard movie={movie} key={movie.id} />
             ))}
           </div>
         )}
