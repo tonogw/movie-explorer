@@ -1,4 +1,4 @@
-import Navbar from '@/components/layout/Navbar';
+// import Navbar from '@/components/layout/Navbar';
 // import { useParams } from 'react-router-dom';
 import { getImageUrl } from '@/lib/utils';
 import type { DetailResponse, CreditResponse, VideoResult } from '@/types/movie';
@@ -49,17 +49,15 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
           />
 
           {/* NAVBAR */}
-          <div className="absolute top-0 left-0 w-full z-30">
-            <Navbar />
-          </div>
+          <div className="absolute top-0 left-0 w-full z-30">{/* <Navbar /> */}</div>
         </div>
       </div>
 
       {/* MOBILE CONTAINER MAX-W-359 */}
-      <div className="mx-auto w-full max-w-[359px]">
+      <div className="mx-auto w-full  max-w-[359px]">
         <div className="-mt-20  relative z-40">
           {/* BLOK POSTER */}
-          <div className=" flex gap-2  items-start border border-red-400">
+          <div className=" flex gap-2 items-start border border-red-400">
             {/* FETCH POSTER */}
             <img
               src={getImageUrl(data.poster_path, IMAGE_SIZES.poster.large)}
@@ -71,7 +69,6 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
             {/* BLOK TITLE, RATING, GENRE AND AGE */}
             <div className="flex-1 pb-4 max-w-[359px] border">
               {/* GET TITLE */}
-              <h1 className="pt-2 text-xl font-bold leading-tight">{data.title}</h1>
               {/* GET RELEASE DATE */}
               <div className="flex items-center mt-2 gap-2 text-sm text-[#A4A7AE]">
                 <Calendar size={16} />
@@ -106,7 +103,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
             </span>
           </div>
           {/* BLOK RATING, GENRE, AGE */}
-          <div className="grid grid-cols-3 gap-2 mt-6 text-base  ">
+          <div className="grid grid-cols-3  gap-2 mt-6 text-base  ">
             {/* GET RATING */}
             <div
               className="

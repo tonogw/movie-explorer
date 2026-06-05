@@ -1,6 +1,6 @@
-import { LucideTv } from 'lucide-react';
-import SearchBar from '../features/SearchBar';
-import MobileMenu from '../features/MobileMenu';
+import { LucideTv, SearchIcon } from 'lucide-react';
+import SearchBar from '@/components/features/SearchBar';
+import MobileMenu from '@/components/features/MobileMenu';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -43,7 +43,12 @@ export default function Navbar() {
           </div>
         </div>
         <div className="flex items-center gap-4">
+          {/* DESKTOP SEARCH */}
           <SearchBar />
+        </div>
+        <div className="flex md:hidden items-center gap-4">
+          {/* MOBILE SEARCH */}
+          <SearchIcon />
           <MobileMenu />
         </div>
       </div>

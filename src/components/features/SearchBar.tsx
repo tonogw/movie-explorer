@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { useNavigate } from 'react-router-dom';
 
 export default function SearchBar() {
+  // console.log('searchBar rendered');
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { data } = useSearchMovies(searchQuery);
@@ -16,7 +17,6 @@ export default function SearchBar() {
 
     navigate(`/search-page?q=${searchQuery}`);
   };
-
   return (
     // DESKTOP
     <div className="hidden md:block ">
@@ -35,7 +35,7 @@ export default function SearchBar() {
               handleSearch();
             }
           }}
-          className="pl-10"
+          className="pl-10 max-w-[243px]"
         />
 
         {/* <input

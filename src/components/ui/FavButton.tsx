@@ -8,7 +8,7 @@ type FavButtonProps = {
 };
 
 export default function FavButton({ movie }: FavButtonProps) {
-  const toggleFavorite = useMovieStore((state) => state.toggleFavorite);
+  //   const toggleFavorite = useMovieStore((state) => state.toggleFavorite);
 
   const isFavorite = useMovieStore((state) => state.isFavorite(movie.id));
 
@@ -19,7 +19,7 @@ export default function FavButton({ movie }: FavButtonProps) {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        toggleFavorite(movie);
+        // toggleFavorite(movie);
       }}
     >
       <Heart size={32} className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />

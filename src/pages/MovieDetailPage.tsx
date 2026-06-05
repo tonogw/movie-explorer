@@ -3,6 +3,7 @@ import { useMovieCredits, useMovieDetail, useWatchTrailer } from '@/hooks/useMov
 
 import MobileLayout from '@/components/layout/MobileLayout';
 import DesktopLayout from '@/components/layout/DesktopLayout';
+import Navbar from '@/components/layout/Navbar';
 // import { useMovieStore } from '@/store/movieStore';
 // import { Button } from '@/components/ui/button';
 // import { useMovieStore } from '@/store/movieStore';
@@ -11,6 +12,7 @@ import DesktopLayout from '@/components/layout/DesktopLayout';
 // import { getImageUrl } from '@/lib/utils';
 
 export default function MovieDetailPage() {
+  // console.log('SearchBar rendered');
   const { movieId } = useParams();
 
   const { data, isLoading } = useMovieDetail(Number(movieId));
@@ -28,9 +30,9 @@ export default function MovieDetailPage() {
   const trailer = trailerData?.results?.find(
     (video) => video.site === 'YouTube' && video.type === 'Trailer'
   );
-
   return (
     <>
+      <Navbar />
       <div className="md:hidden">
         <MobileLayout
           data={data}

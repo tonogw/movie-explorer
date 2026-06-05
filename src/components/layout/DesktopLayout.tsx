@@ -1,11 +1,11 @@
-import Navbar from '@/components/layout/Navbar';
+// import Navbar from '@/components/layout/Navbar';
 import type { DetailResponse, CreditResponse, VideoResult } from '@/types/movie';
 import Footer from '@/components/layout/Footer';
 
 import { getImageUrl } from '@/lib/utils';
 import { IMAGE_SIZES } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
-import { Star, BabyIcon, Calendar, Video as VideoIcon } from 'lucide-react';
+import { Star, BabyIcon, Video as VideoIcon, CalendarDays } from 'lucide-react';
 import FavButton from '@/components/ui/FavButton';
 // import type { Movie, DetailResponse } from '@/types/movie';
 // backdrop-poster-title-releaseDate-overview-button-rating-genre-age|
@@ -41,7 +41,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
     <div className="bg-black text-white  border ">
       {/* NAVBAR */}
 
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="relative">
         {/* BACKDROP */}
         <img
@@ -75,7 +75,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
               <FavButton movie={data} />
             </div>
             <div className="flex gap-2">
-              <Calendar size={32} />
+              <CalendarDays size={32} />
               <span>{data.release_date}</span>
             </div>
 

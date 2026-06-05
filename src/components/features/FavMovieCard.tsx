@@ -15,11 +15,11 @@
 import { Link } from 'react-router-dom';
 import { getImageUrl } from '@/lib/utils';
 import { IMAGE_SIZES } from '@/lib/constants';
-import { Star, Play } from 'lucide-react';
+import { Star } from 'lucide-react';
 import type { Movie } from '@/types/movie';
 // import { Button } from '@/components/ui/button';
 import FavButton from '../ui/FavButton';
-import TrailerButton from '@/components/ui/TrailerButton';
+// import TrailerButton from '@/components/ui/TrailerButton';
 
 type Props = {
   movie: Movie;
@@ -56,12 +56,10 @@ export default function FavMovieCard({ movie }: Props) {
             <span className="text-yellow-400">{movie.vote_average.toFixed(1)}</span>
           </div>
           {/* OVERVIEW */}
-          <p className="text-sm text-gray-400 mt-2 line-clamp-3">{movie.overview}</p>
+          <p className="text-sm text-gray-400 mt-2 bg-amber-100 line-clamp-3">{movie.overview}</p>
         </div>
         {/* WATCH MOVIE TRAILER */}
-        <div className="mt-4 border">
-          <TrailerButton />
-        </div>
+        <div className="mt-4 border">{/* <TrailerButton /> */}</div>
       </div>
       <div className="w-[182px] flex justify-end items-start">
         <FavButton movie={movie} />
