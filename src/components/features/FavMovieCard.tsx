@@ -47,7 +47,7 @@ export default function FavMovieCard({ movie }: Props) {
       {/* DETAIL */}
       <div className="flex-1 flex flex-col justify-between border">
         {/* TOP CONTENT */}
-        <div className="border border-red-500">
+        <div className="border">
           {/* TITLE */}
           <h3 className="text-lg font-semibold">{movie.title}</h3>
           {/* RATING */}

@@ -19,7 +19,7 @@ export default function SearchPage() {
     <div className="min-h-screen bg-black text-white">
       <Navbar />
 
-      <main className="max-w-290 mx-auto  pt-24">
+      <main className="max-w-290 mx-auto px-35 pt-24">
         {!query ? (
           <p className="text-gray-400 text-center mt-20">Type keyword to search movies</p>
         ) : isLoading ? (

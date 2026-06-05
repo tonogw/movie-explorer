@@ -80,7 +80,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
             </div>
 
             {/* BLOK INTERACTIVE */}
-            <div className="my-6 flex border items-center gap-4">
+            <div className="my-6 flex  items-center gap-4">
               {/* FETCH TRAILER */}
               <Button
                 onClick={() => {
@@ -89,7 +89,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
                     // window.open(`https://youtube.com/${trailer.key}?autoplay=1&rel=0`, '_blank');
                   }
                 }}
-                className="w-[220px] border bg-[#961200] text-white rounded-full"
+                className="w-[220px]  bg-[#961200] text-white rounded-full"
               >
                 Watch Trailer
               </Button>
@@ -128,26 +128,26 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
         </div>
         {/* BLOK OVERVIEW */}
 
-        <div className="my-12 text-4xl lg:text-base font-bold border">
+        <div className="my-12 text-4xl lg:text-base font-bold">
           {/* FETCH OVERVIEW */}
           <h2 className="text-[32px]">Overview</h2>
-          <p className="text-[#A4A7AE]">{data.overview}</p>
+          <p className="text-2xl text-[#A4A7AE]">{data.overview}</p>
           <div className="mt-6 text-base lg:text-lg text-gray-300">{/* MOVIE CARDS */}</div>
         </div>
       </div>
 
       {/* BLOK CAST & CREW */}
-      <div className="mx-auto max-w-[1160px] mt-6 border pb-10">
+      <div className="mx-auto max-w-[1160px] mt-6  pb-10">
         <div className="">
           {/* CAST & CREW */}
-          <h2 className=" py-4 font-bold text-xl">Cast & Crew</h2>
+          <h2 className=" py-4 font-bold text-2xl">Cast & Crew</h2>
           {/* BLOK GRID */}
-          <div className="border border-amber-400 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* FETCH DETAIL CREDITS */}
             {credits.cast.slice(0, 10).map((cast) => (
               // GET MOVIE ID
               <div
-                className="border border-red-500 max-w-90  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3   py-5 pr-5"
+                className="mx-auto max-w-90  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3   py-5 pr-5"
                 key={cast.id}
               >
                 {/* GET CAST/CREW IMAGE */}

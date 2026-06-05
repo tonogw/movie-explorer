@@ -49,9 +49,9 @@ export default function SearchPageMobile() {
           <p className="text-gray-400 text-center mt-20 ">Loading movies . . .</p>
         ) : movies.length === 0 ? (
           <div>
-            <Clapperboard size={72} />
+            <Clapperboard size={72} className="items-center" />
             <h3 className="text-center mt-20">Data Not Found</h3>
-            <p className="text-gray-500">Try another keyword</p>
+            <p className="text-center text-gray-500 ">Try another keyword</p>
           </div>
         ) : (
           <div className="border">

@@ -17,7 +17,7 @@ export default function FavoritesPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
-      <main id="favorites" className="max-w-[1160px] mx-auto px-4 pt-24">
+      <main id="favorites" className="max-w-[1160px] mx-auto px-4 md:px-18 lg:h-35 pt-24">
         <h1 className="text-3xl font-bold mb-8">Favorites</h1>
         {favorites.length === 0 ? (
           <div className="flex items-center justify-center min-h-70vh">

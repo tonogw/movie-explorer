@@ -57,7 +57,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
       <div className="mx-auto w-full  max-w-[359px]">
         <div className="-mt-20  relative z-40">
           {/* BLOK POSTER */}
-          <div className=" flex gap-2 items-start border border-red-400">
+          <div className=" flex gap-2 items-start">
             {/* FETCH POSTER */}
             <img
               src={getImageUrl(data.poster_path, IMAGE_SIZES.poster.large)}
@@ -82,7 +82,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
         {/* START HERE */}
 
         <div className="mx-auto max-w-[359px]">
-          <div className="mt-6 flex border gap-4 items-center max-w-[301px]">
+          <div className="mt-6 flex gap-4 items-center max-w-[301px]">
             {/* FETCH TRAILER */}
             <Button
               disabled={!trailer}
@@ -91,7 +91,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
                   window.open(`https://youtube.com/watch?v=${trailer.key}`, '_blank');
                 }
               }}
-              className=" border  w-full bg-[#961200] text-white rounded-full"
+              className=" w-full bg-[#961200] text-white rounded-full"
             >
               Watch Trailer
             </Button>
@@ -142,28 +142,25 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
       "
         >
           {/* BLOK OVERVIEW */}
-          <div className="mx-auto max-w-[359px]  lg:px-35 border">
+          <div className="mx-auto max-w-[359px] px-4 md:px-18 lg:px-35 border">
             {/* OVERVIEW */}
-            <h2 className="font-bold text-xl ">Overview</h2>
+            <h2 className="font-bold text-base ">Overview</h2>
             {/* GET OVERVIEW DETAIL */}
             <p>{data.overview} </p>
           </div>
         </div>
 
         {/* BLOK CAST & CREW */}
-        <div className="mx-auto max-w-[359px] mt-6 border pb-10">
+        <div className="mx-auto max-w-[359px] mt-6  pb-10">
           <div className="">
             {/* CAST & CREW */}
             <h2 className=" py-4 font-bold text-xl">Cast & Crew</h2>
             {/* BLOK GRID */}
-            <div className="border border-amber-400 grid grid-cols-1">
+            <div className="  grid grid-cols-1">
               {/* FETCH DETAIL CREDITS */}
               {credits.cast.slice(0, 10).map((cast) => (
                 // GET MOVIE ID
-                <div
-                  className="border border-red-500 max-w-90  grid grid-cols-3   py-5 pr-5"
-                  key={cast.id}
-                >
+                <div className=" max-w-90  grid grid-cols-3   py-5 pr-5" key={cast.id}>
                   {/* GET CAST/CREW IMAGE */}
                   <img
                     src={getImageUrl(cast.profile_path, IMAGE_SIZES.profile.medium)}
