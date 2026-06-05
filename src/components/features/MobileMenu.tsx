@@ -1,4 +1,4 @@
-import { Menu } from 'lucide-react';
+import { Menu, X, LucideTv } from 'lucide-react';
 // import { useState } from 'react';
 import {
   Sheet,
@@ -21,11 +21,18 @@ export default function MobileMenu() {
         </button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="bg-red-500 text-white">
-        <SheetTitle>Menu</SheetTitle>
+      <SheetContent side="right" className="">
+        <SheetTitle className="sr-only">Menu</SheetTitle>
 
-        <SheetDescription>Navigation menu</SheetDescription>
+        <SheetDescription className="sr-only">Navigation menu</SheetDescription>
 
+        {/* LOGO */}
+        {/* <div className="mt-8 flex items-center gap-2">
+          <LucideTv size={28} />
+          <span className="text-xl font-bold">Movie</span>
+        </div> */}
+
+        {/* MENU */}
         <nav className="mt-10 flex flex-col gap-6 text-lg">
           <SheetClose asChild>
             <Link to="/">Home</Link>
@@ -36,34 +43,6 @@ export default function MobileMenu() {
           </SheetClose>
         </nav>
       </SheetContent>
-
-      {/* <button onClick={() => setOpen(true)} className="md:hidden">
-        <Menu size={24} />
-      </button>
-
-      {open && (
-        <div
-          className="
-                fixed
-                inset-0
-                z-50
-                bg-black
-                text-white
-                p-6
-                "
-        >
-          <div
-            className="
-                    mt-10 flex
-                    flex-col gap-6
-                    text-xl
-                    "
-          >
-            <a href="#home">Home</a>
-            <a href="#favorites">Favorites</a>
-          </div>
-        </div>
-      )} */}
     </Sheet>
   );
 }

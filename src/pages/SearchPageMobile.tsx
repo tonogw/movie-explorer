@@ -4,10 +4,12 @@ import FavMovieCard from '@/components/features/FavMovieCard';
 
 import { useSearchParams } from 'react-router-dom';
 import { useSearchMovies } from '@/hooks/useMovies';
-import { Clapperboard } from 'lucide-react';
+import { Clapperboard, ArrowLeft, Search, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 // import { getImageUrl } from '@/lib/utils';
 // import { IMAGE_SIZES } from '@/lib/constants';
 // import MovieCard from '@/components/features/MovieCard';
+// import { Link } from 'react-router-dom';
 
 export default function SearchPageMobile() {
   const [searchParams] = useSearchParams();
@@ -25,7 +27,13 @@ export default function SearchPageMobile() {
         flex items-center gap-3 px-4 z-50
         "
       >
-        Back Search Input
+        <Button onClick={() => navigate(-1)} className="shrink-0">
+          <ArrowLeft size={20} />
+        </Button>
+
+        <div>
+          <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" />
+        </div>
       </header>
       <main id="search-mobile" className="max-w-290 mx-auto border pt-24">
         {!query ? (
