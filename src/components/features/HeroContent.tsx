@@ -1,5 +1,5 @@
 import type { Movie } from '@/types/movie';
-import HeroButton from './heroButton';
+import HeroButton from '@/components/features/HeroButton';
 
 interface HeroContentProps {
   movie: Movie;
