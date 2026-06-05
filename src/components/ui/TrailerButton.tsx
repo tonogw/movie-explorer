@@ -1,27 +1,29 @@
 import { Button } from '@/components/ui/button';
-
-import type { Movie, DetailResponse } from '@/types/movie';
+// import { getMovieTrailer } from '@/services/movieService';
+import type { Movie, TrailerResponse } from '@/types/movie';
+import { movieService } from '@/services/movieService';
 
 type TrailerButtonProps = {
-  movie: Movie | DetailResponse;
+  movie: Movie | TrailerResponse;
 };
 
 export default function TrailerButton({ movie }: TrailerButtonProps) {
+  const handleClick = async () => {
+    try {
+      const data = await movieService.getMovieTrailer(movie.id);
+
+      const trailer = data?.results?.find((v) => v.site === 'YouTube' && v.type === 'Trailer');
+
+      if (trailer?.key) {
+        window.open(`https://youtube.com/watch?v=${trailer.key}`, '_blank');
+      }
+    } catch (err) {
+      console.error('Failed to load trailer', err);
+    }
+  };
+
   return (
-    <Button
-      variant="trailer"
-      onClick={async () => {
-        const res = await fetch(`/movie/${movie.id}/videos`);
-
-        const data = await res.json();
-
-        const trailer = data.results.find((v) => v.type === 'Trailer' && v.site === 'YouTube');
-
-        if (trailer) {
-          window.open(`https://youtube.com/watch?v=${trailer.key}`, '_blank');
-        }
-      }}
-    >
+    <Button variant="trailer" onClick={handleClick}>
       Watch Trailer
     </Button>
   );

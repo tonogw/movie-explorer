@@ -1,12 +1,28 @@
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
+import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
+import { Link } from 'react-router-dom';
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
-      <button onClick={() => setOpen(true)} className="md:hidden">
+    <Sheet>
+      <SheetTrigger asChild>
+        <button>
+          <Menu size={24} />
+        </button>
+      </SheetTrigger>
+
+      <SheetContent>
+        <nav>
+          <Link to="/">Home</Link>
+
+          <Link to="/favorites">Favorites</Link>
+        </nav>
+      </SheetContent>
+
+      {/* <button onClick={() => setOpen(true)} className="md:hidden">
         <Menu size={24} />
       </button>
 
@@ -32,7 +48,7 @@ export default function MobileMenu() {
             <a href="#favorites">Favorites</a>
           </div>
         </div>
-      )}
-    </>
+      )} */}
+    </Sheet>
   );
 }
