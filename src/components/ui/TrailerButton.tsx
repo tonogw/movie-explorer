@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button';
-// import { getMovieTrailer } from '@/services/movieService';
 import type { Movie, TrailerResponse } from '@/types/movie';
 import { movieService } from '@/services/movieService';
 

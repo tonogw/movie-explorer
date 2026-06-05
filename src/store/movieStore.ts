@@ -2,22 +2,15 @@ import { create } from 'zustand';
 import type { DetailResponse, Movie } from '@/types/movie';
 import { persist } from 'zustand/middleware';
 
-// TODO: Define your store state interface
 interface MovieStore {
-  //   // TODO: Add state properties
-  // example  , watchlist, selectedMovie, etc.
   favorites: Movie[];
 
-  //   // TODO: Add action methods
   addToFavorite: (movie: Movie) => void;
   removeFromFavorite: (movieId: number) => void;
   toggleFavorite: (movie: Movie | DetailResponse) => void;
 
   isFavorite: (movieId: number) => boolean;
 }
-
-// TODO: Create Zustand store
-// Reference: https://zustand.docs.pmnd.rs/getting-started/introduction
 
 export const useMovieStore = create<MovieStore>()(
   persist(
@@ -62,7 +55,6 @@ export const useMovieStore = create<MovieStore>()(
             vote_average: movie.vote_average,
             vote_count: movie.vote_count,
 
-            // Mengatasi perbedaan krusial antara 'genre_ids' dan 'genres'
             genre_ids:
               'genre_ids' in movie ? movie.genre_ids : movie.genres?.map((g) => g.id) || [],
           };
@@ -72,8 +64,6 @@ export const useMovieStore = create<MovieStore>()(
       },
 
       isFavorite: (movieId) => get().favorites.some((movie) => movie.id === movieId),
-
-      //   // TODO: Initialize state and implement actions
     }),
     {
       name: 'movie-favorites',

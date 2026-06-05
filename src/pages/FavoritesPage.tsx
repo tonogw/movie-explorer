@@ -1,15 +1,9 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-// import type { Movie } from '@/types/movie';
 import { useMovieStore } from '@/store/movieStore';
-// import MovieCard from '@/components/features/MovieCard';
 import { Clapperboard } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FavMovieCard from '@/components/features/FavMovieCard';
-
-//  interface FavoritesPageProps {
-//     movie: Movie;
-// }
 
 export default function FavoritesPage() {
   const favorites = useMovieStore((state) => state.favorites);

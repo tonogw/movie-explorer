@@ -2,7 +2,6 @@ import { getImageUrl } from '@/lib/utils';
 import { useTrendingMovies } from '@/hooks/useMovies';
 import { IMAGE_SIZES } from '@/lib/constants';
 import HeroContent from './HeroContent';
-// import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   const { data: trendingMovies, isLoading: trendingLoading, isError } = useTrendingMovies('week');
@@ -32,7 +31,6 @@ export default function HeroSection() {
       />
 
       <div className="overlay absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent" />
-      {/* <div className="min-w-97.5 min-h-97 lg:max-h-225 lg:max-w-360 absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent " /> */}
 
       <HeroContent movie={heroMovie} />
     </section>

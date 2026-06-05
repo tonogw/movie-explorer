@@ -1,4 +1,3 @@
-// import Navbar from '@/components/layout/Navbar';
 import type { DetailResponse, CreditResponse, VideoResult } from '@/types/movie';
 import Footer from '@/components/layout/Footer';
 
@@ -7,30 +6,12 @@ import { IMAGE_SIZES } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { Star, BabyIcon, Video as VideoIcon, CalendarDays } from 'lucide-react';
 import FavButton from '@/components/ui/FavButton';
-// import type { Movie, DetailResponse } from '@/types/movie';
-// backdrop-poster-title-releaseDate-overview-button-rating-genre-age|
-// div className="mx-auto max-w-[1160px] px-8"
-// HEADER: className:"flex gap-8"
-// IMG: className:"w-64 lg:w-80 rounded-xl"
-// DETAIL: className:"flex-1"
-// TITLE: clasName:"text-4xl lg:text-6xl font-bold"
-// OVERVIEW: className:"mt-6 text-base lg:text-lg text-gray-300"
-// CARDS: className:"mt-8 grid grid-cols-3 gap-4 max-w-xl"
-// ++ runtime data.runtime
-// SIMILAR MOVIE => MovieCard
-// FAVORITES (ZUZTAND) Add | Remove | Persist | Heart Indicator |
 
 type DesktopLayoutProps = {
   data: DetailResponse;
   credits: CreditResponse;
   trailer?: VideoResult;
 };
-
-// type FavoriteMovie = Movie | DetailResponse;
-
-// type FaveButtonProps = {
-//   movie: Movie | FavoriteMovie;
-// };
 
 export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutProps) {
   //   const trailer = trailerData?.results?.find(
@@ -39,9 +20,6 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
 
   return (
     <div className="bg-black text-white  border ">
-      {/* NAVBAR */}
-
-      {/* <Navbar /> */}
       <div className="relative">
         {/* BACKDROP */}
         <img
@@ -93,13 +71,6 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
               >
                 Watch Trailer
               </Button>
-              {/* FAVORITES */}
-              {/* <Heart size={24} className="align-center justify-middle" /> */}
-
-              {/* <Button variant="favorite" size="icon" onClick={() => toggleFavorite(data)}>
-                <Heart className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />
-              </Button> */}
-              {/* <FavButton movie={data} /> */}
             </div>
 
             {/* BLOK RATING, GENRE, AGE */}
@@ -114,7 +85,7 @@ export default function DesktopLayout({ data, credits, trailer }: DesktopLayoutP
               <div className="flex flex-col bg-gray-950 border rounded-xl p-4  items-center text-center">
                 <VideoIcon size={32} className="mb-2" />
                 <p className="text-sm text-gray-400">Genre </p>
-                {/* <p>{data.genres?.map((genre) => genre.name).join(',')} </p> */}
+
                 <p>{data.genres[0]?.name} </p>
               </div>
               {/* GET AGE LIMIT */}

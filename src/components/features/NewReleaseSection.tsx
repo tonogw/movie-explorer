@@ -3,8 +3,6 @@ import MovieCard from './MovieCard';
 import type { Movie } from '@/types/movie';
 import { useEffect, useRef, useState } from 'react';
 import useGridColumns from '@/hooks/useGridColumns';
-// import { useCardWidth } from '@/hooks/useCardWidth';
-// import useColumnWidth from '../../hooks/useColumnWidth';
 
 interface NewReleaseSectionProps {
   onWidthChange: (width: number) => void;
@@ -25,7 +23,6 @@ export default function NewReleaseSection({ onWidthChange }: NewReleaseSectionPr
       if (firstCardRef.current) {
         const cardWidth = firstCardRef.current.getBoundingClientRect().width;
 
-        // console.log('column width=', cardWidth);
         onWidthChange(cardWidth);
       }
     };
@@ -44,33 +41,9 @@ export default function NewReleaseSection({ onWidthChange }: NewReleaseSectionPr
     return <div>Failed to fetch movies...</div>;
   }
 
-  //   const loadMore = () => {
-  //     const columns = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
-  //     setVisibleCount((prev) => prev + columns);
-  //   };
-
   const loadMore = () => {
     setVisibleCount((prev) => prev + columns);
   };
-
-  //   const cardRef = useRef<HTMLDivElement>(null);
-  //   const [cardWidth, setCardWidth] = useState(0);
-
-  //   useEffect(() => {
-  //     const updateWidth = () => {
-  //       if (cardRef.current) {
-  //         setCardWidth(cardRef.current.offsetWidth);
-  //       }
-  //     };
-
-  // updateWidth();
-
-  //     window.addEventListener('resize', updateWidth);
-
-  //     return () => {
-  //       window.removeEventListener('resize', updateWidth);
-  //     };
-  //   }, []);
 
   return (
     <section className="relative z-30 px-2 md:px-10 lg:px-35 pt-2 md:pt-5 lg:pt-20 bg-black text-[#FDFDFD]">
@@ -80,15 +53,10 @@ export default function NewReleaseSection({ onWidthChange }: NewReleaseSectionPr
         {releases.slice(0, visibleCount).map((movie, index) => (
           //   min-w-43.25 min-h-66.5 lg:w-55
           <div key={movie.id} ref={index === 0 ? firstCardRef : undefined} className="group block ">
-            {/* <div key={movie.id} className="aspect-2/3"> */}
-            {/* <div ref={index === 0 ? ref : undefined}> */}
             <MovieCard movie={movie} />
           </div>
         ))}
       </div>
-      {/* <div className=" lg:max-h-225 absolute inset-0 bg-linear-to-t from-black via-transparent  to-transparent " /> */}
-
-      {/* {visibleCount < releases.length && ( */}
 
       <div className="col-span-full flex justify-center mt-8">
         <button

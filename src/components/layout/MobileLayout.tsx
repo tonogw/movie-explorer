@@ -1,19 +1,10 @@
-// import Navbar from '@/components/layout/Navbar';
-// import { useParams } from 'react-router-dom';
 import { getImageUrl } from '@/lib/utils';
 import type { DetailResponse, CreditResponse, VideoResult } from '@/types/movie';
-// import { useMovieDetail } from '@/hooks/useMovies';
-// import {getMovieDetails} from "../services/movieService";
-// import { useMovieCredits, useMovieDetail } from '@/hooks/useMovies';
 import { IMAGE_SIZES } from '@/lib/constants';
-// import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Star, Video as VideoIcon, BabyIcon, CalendarDays } from 'lucide-react';
-// import MovieCard from '@/components/features/MovieCard';
-// import { Video } from 'lucide-react';
+
 import Footer from '@/components/layout/Footer';
-// import FavButton from '../ui/FavButton';
-// import { getImageUrl } from '@/lib/utils';
 
 type MobileLayoutProps = {
   data: DetailResponse;
@@ -22,15 +13,6 @@ type MobileLayoutProps = {
 };
 
 export default function MobileLayout({ data, credits, trailer }: MobileLayoutProps) {
-  // const { movieId } = useParams();
-
-  // const { data, isLoading } = useMovieDetail(Number(movieId));
-  // const { data: credits } = useMovieCredits(Number(movieId));
-
-  // if (isLoading) {
-  //   return <div>Loading movie details ... </div>;
-  // }
-
   return (
     <div className="md:hidden bg-black text-[#FDFDFD] px-4">
       <div className="bg-black text-[#FDFDFD] ">
@@ -65,7 +47,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
               className="w-28    rounded-xl border-4 border-gray-600 shadow-lg shrink-0"
             />
             {/* BLOK DETAIL */}
-            {/* <div className=" mx-auto max-w-[359px]  text-left border border-yellow-400"> */}
+
             {/* BLOK TITLE, RATING, GENRE AND AGE */}
             <div className="flex-1 pb-4 max-w-[359px] border">
               {/* GET TITLE */}
@@ -95,13 +77,6 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
             >
               Watch Trailer
             </Button>
-            {/* FAVORITES */}
-            <span>
-              {/* <Button variant="favorite" size="icon" onClick={() => toggleFavorite(data)}>
-                <Heart className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />
-              </Button> */}
-              {/* <FavButton movie={data}/> */}
-            </span>
           </div>
           {/* BLOK RATING, GENRE, AGE */}
           <div className="grid grid-cols-3  gap-2 mt-6 text-base  ">
@@ -180,13 +155,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
           </div>
         </div>
       </div>
-      {/* CONTAINER */}
 
-      {/* POSTER AND INFO */}
-
-      {/* BLOK INTERACTIVE */}
-
-      {/* </div> */}
       {/* BLOK FOOTER */}
       <div className="">
         <Footer />

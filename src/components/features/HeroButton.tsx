@@ -9,10 +9,7 @@ interface HeroContentProps {
 export default function HeroButton({ movie }: HeroContentProps) {
   return (
     <div className="mt-8 flex flex-col md:flex-row gap-4 ">
-      <button
-        onClick={() => console.log('WATCH TRAILER clicked')}
-        className="w-full md:w-57.5 h-12  flex justify-center items-center  gap-2 font-bold text-center text-base text-[#FDFDFD]   bg-[#961200] rounded-full z-50 hover:bg-red-700"
-      >
+      <button className="w-full md:w-57.5 h-12  flex justify-center items-center  gap-2 font-bold text-center text-base text-[#FDFDFD]   bg-[#961200] rounded-full z-50 hover:bg-red-700">
         <span>Watch Trailer</span>
         <Play
           size={16}

@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { useSearchMovies } from '@/hooks/useMovies';
-// import { useSearchMovies } from '../../hooks/';
 import { Input } from '@/components/ui/input';
 import { useNavigate } from 'react-router-dom';
 
 export default function SearchBar() {
-  // console.log('searchBar rendered');
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { data } = useSearchMovies(searchQuery);
@@ -37,17 +35,6 @@ export default function SearchBar() {
           }}
           className="pl-10 max-w-[243px]"
         />
-
-        {/* <input
-          id="desktop-search"
-          name="desktop-search"
-          type="text"
-          autoFocus
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search Movie"
-          className=" pl-10 min-w-60.75 md:max-w-60.75 border border-gray-600 rounded-lg h-10 bg-gray-700 text-white placeholder:text-gray-400 "
-        /> */}
       </div>
       <div />
 

@@ -1,13 +1,9 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import FavMovieCard from '@/components/features/FavMovieCard';
-
 import { useSearchParams } from 'react-router-dom';
 import { useSearchMovies } from '@/hooks/useMovies';
 import { Clapperboard } from 'lucide-react';
-// import { getImageUrl } from '@/lib/utils';
-// import { IMAGE_SIZES } from '@/lib/constants';
-// import MovieCard from '@/components/features/MovieCard';
 
 export default function SearchPage() {
   const [searchParams] = useSearchParams();

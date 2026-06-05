@@ -1,15 +1,9 @@
-// import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import FavMovieCard from '@/components/features/FavMovieCard';
-
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useSearchMovies } from '@/hooks/useMovies';
 import { Clapperboard, ArrowLeft, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-// import { getImageUrl } from '@/lib/utils';
-// import { IMAGE_SIZES } from '@/lib/constants';
-// import MovieCard from '@/components/features/MovieCard';
-// import { Link } from 'react-router-dom';
 
 export default function SearchPageMobile() {
   const navigate = useNavigate();
@@ -60,10 +54,6 @@ export default function SearchPageMobile() {
             ))}
           </div>
         )}
-
-        {/* <img src={getImageUrl(movie.poster_path, IMAGE_SIZES.poster.large)} alt={movie.title} /> */}
-        {/* <img src={getImageUrl(data?.poster_path, IMAGE_SIZES.poster.large)} alt={data?.title} /> */}
-        {/* <MovieCard movie={movie} /> */}
       </main>
 
       <Footer />

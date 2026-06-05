@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export default function Navbar() {
-  //   const [searchQuery, setSearchQuery] = useState('');
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -39,7 +38,6 @@ export default function Navbar() {
           <div className="hidden  md:flex  gap-12 font-semibold">
             <Link to="/">Home</Link>
             <Link to="/favorites">Favorites</Link>
-            {/* <a href="#favorites">Favorites</a> */}
           </div>
         </div>
         <div className="flex items-center gap-4">

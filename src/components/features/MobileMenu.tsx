@@ -24,12 +24,6 @@ export default function MobileMenu() {
 
         <SheetDescription className="sr-only">Navigation menu</SheetDescription>
 
-        {/* LOGO */}
-        {/* <div className="mt-8 flex items-center gap-2">
-          <LucideTv size={28} />
-          <span className="text-xl font-bold">Movie</span>
-        </div> */}
-
         {/* MENU */}
         <nav className="mt-10 flex flex-col gap-6 text-lg">
           <SheetClose asChild>

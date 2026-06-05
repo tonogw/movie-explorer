@@ -7,9 +7,6 @@ import type {
   TrailerResponse,
 } from '@/types/movie';
 
-// TODO: Create service functions to fetch data from TMDB API
-// Reference: https://developer.themoviedb.org/reference/intro/getting-started
-
 export const movieService = {
   // TODO: Implement getPopularMovies function
   // Endpoint: GET /movie/popular
