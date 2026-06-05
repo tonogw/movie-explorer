@@ -1,5 +1,5 @@
-import { Menu, X, LucideTv } from 'lucide-react';
-// import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 import {
   Sheet,
   SheetTrigger,
@@ -11,14 +11,12 @@ import {
 import { Link } from 'react-router-dom';
 
 export default function MobileMenu() {
-  // const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <button>
-          <Menu size={24} />
-        </button>
+        <button>{open ? <X size={24} /> : <Menu size={24} />}</button>
       </SheetTrigger>
 
       <SheetContent side="right" className="">

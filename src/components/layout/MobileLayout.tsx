@@ -8,7 +8,7 @@ import type { DetailResponse, CreditResponse, VideoResult } from '@/types/movie'
 import { IMAGE_SIZES } from '@/lib/constants';
 // import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Star, Video as VideoIcon, BabyIcon, Calendar } from 'lucide-react';
+import { Star, Video as VideoIcon, BabyIcon, CalendarDays } from 'lucide-react';
 // import MovieCard from '@/components/features/MovieCard';
 // import { Video } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
@@ -69,9 +69,10 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
             {/* BLOK TITLE, RATING, GENRE AND AGE */}
             <div className="flex-1 pb-4 max-w-[359px] border">
               {/* GET TITLE */}
+              <h2 className="text-base font-bold">{data.title}</h2>
               {/* GET RELEASE DATE */}
               <div className="flex items-center mt-2 gap-2 text-sm text-[#A4A7AE]">
-                <Calendar size={16} />
+                <CalendarDays size={16} />
                 <span>{data.release_date}</span>
               </div>
             </div>
@@ -81,7 +82,7 @@ export default function MobileLayout({ data, credits, trailer }: MobileLayoutPro
         {/* START HERE */}
 
         <div className="mx-auto max-w-[359px]">
-          <div className="mt-6 flex border gap-4 items-center">
+          <div className="mt-6 flex border gap-4 items-center max-w-[301px]">
             {/* FETCH TRAILER */}
             <Button
               disabled={!trailer}

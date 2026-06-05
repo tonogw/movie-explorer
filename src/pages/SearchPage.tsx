@@ -37,10 +37,6 @@ export default function SearchPage() {
             ))}
           </div>
         )}
-
-        {/* <img src={getImageUrl(movie.poster_path, IMAGE_SIZES.poster.large)} alt={movie.title} /> */}
-        {/* <img src={getImageUrl(data?.poster_path, IMAGE_SIZES.poster.large)} alt={data?.title} /> */}
-        {/* <MovieCard movie={movie} /> */}
       </main>
 
       <Footer />
