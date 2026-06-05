@@ -2,9 +2,9 @@
 import Footer from '@/components/layout/Footer';
 import FavMovieCard from '@/components/features/FavMovieCard';
 
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useSearchMovies } from '@/hooks/useMovies';
-import { Clapperboard, ArrowLeft, Search, X } from 'lucide-react';
+import { Clapperboard, ArrowLeft, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 // import { getImageUrl } from '@/lib/utils';
 // import { IMAGE_SIZES } from '@/lib/constants';
@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 // import { Link } from 'react-router-dom';
 
 export default function SearchPageMobile() {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
   const { data, isLoading } = useSearchMovies(query);
@@ -31,8 +32,14 @@ export default function SearchPageMobile() {
           <ArrowLeft size={20} />
         </Button>
 
-        <div>
+        <div className="relative flex-1">
           <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" />
+          <input
+            type="text"
+            value={query}
+            readOnly
+            className="w-full pl-10 pr-4 py-2 bg-zinc-900 border border-zinc-800 rounded-md text-white focus:outline-none"
+          />
         </div>
       </header>
       <main id="search-mobile" className="max-w-290 mx-auto border pt-24">

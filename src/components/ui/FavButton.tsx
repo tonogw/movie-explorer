@@ -7,20 +7,35 @@ type FavButtonProps = {
   movie: Movie | DetailResponse;
 };
 
-function normalizeMovie(input: Movie | DetailResponse): Movie {
-  return {
-    id: input.id,
-    title: input.title,
-    poster_path: input.poster_path,
-    overview: input.overview,
-    release_date: input.release_date,
-    vote_average: input.vote_average,
-    genre_ids: 'genre_ids' in input ? input.genre_ids : [],
-  };
-}
+// export type FavoriteMovie = {
+//   id: number;
+//   title: string;
+//   poster_path: string| null;
+// };
+
+//  function normalizeMovie(): Movie | DetailResponse): FavoriteMovie => {
+//    return {
+//      id: number,
+//      title: String,
+//      poster_path: string | null,
+//      overview: String,
+//      release_date: String,
+//      vote_average: number,
+//      genre_ids: 'genre_ids' in input ? input.genre_ids : [],
+//    };
+//  };
+
+// const normalizeFavorite = (input: Movie | DetailResponse): FavoriteMovie => {
+//   return {
+//     id: input.id,
+//     title: input.title,
+//     poster_path: input.poster_path,
+//   };
+// };
 
 export default function FavButton({ movie }: FavButtonProps) {
   const toggleFavorite = useMovieStore((state) => state.toggleFavorite);
+  // const toggleFavorite:(movie: FavoriteMovie) => void;
 
   const isFavorite = useMovieStore((state) => state.isFavorite(movie.id));
 
@@ -31,7 +46,7 @@ export default function FavButton({ movie }: FavButtonProps) {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        toggleFavorite(normalizeMovie(movie));
+        toggleFavorite(movie);
       }}
     >
       <Heart size={32} className={isFavorite ? 'fill-red-500 text-red-500' : 'text-white'} />

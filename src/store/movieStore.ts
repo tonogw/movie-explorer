@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { Movie } from '@/types/movie';
+import type { DetailResponse, Movie } from '@/types/movie';
 import { persist } from 'zustand/middleware';
 
 // TODO: Define your store state interface
@@ -11,7 +11,7 @@ interface MovieStore {
   //   // TODO: Add action methods
   addToFavorite: (movie: Movie) => void;
   removeFromFavorite: (movieId: number) => void;
-  toggleFavorite: (movie: Movie) => void;
+  toggleFavorite: (movie: Movie | DetailResponse) => void;
 
   isFavorite: (movieId: number) => boolean;
 }
@@ -40,13 +40,34 @@ export const useMovieStore = create<MovieStore>()(
           favorites: state.favorites.filter((movie) => movie.id !== movieId),
         })),
 
+      // toggleFavorite: (movie) => {
       toggleFavorite: (movie) => {
         const exists = get().favorites.some((item) => item.id === movie.id);
 
         if (exists) {
           get().removeFromFavorite(movie.id);
         } else {
-          get().addToFavorite(movie);
+          const normalizedMovie: Movie = {
+            id: movie.id,
+            title: movie.title,
+            overview: movie.overview,
+            poster_path: movie.poster_path,
+            backdrop_path: movie.backdrop_path,
+            adult: movie.adult,
+            original_language: movie.original_language,
+            original_title: movie.original_title,
+            popularity: movie.popularity,
+            release_date: movie.release_date,
+            video: movie.video,
+            vote_average: movie.vote_average,
+            vote_count: movie.vote_count,
+
+            // Mengatasi perbedaan krusial antara 'genre_ids' dan 'genres'
+            genre_ids:
+              'genre_ids' in movie ? movie.genre_ids : movie.genres?.map((g) => g.id) || [],
+          };
+
+          get().addToFavorite(normalizedMovie);
         }
       },
 
